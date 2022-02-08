@@ -2,9 +2,10 @@
 
 input{
     margin: 10px;
-    line-height: 4em;
-    width: 15.5%;
+    line-height: 3em;
+    width: 20%;
     text-align: center;
+    display: flex
   }
   
   .commonNameInput{
@@ -14,12 +15,20 @@ input{
    
   }
   
-  .commonNameButton{
-    width: 20%;
-    margin-left: 20px;
 
-  }
+.ImageBtn{
+    line-height: inherit;
+    height: 35px;
+ 
+}
 
-.displayImagesButton{
-    margin-left: 350px;
+.imageInputAndBtn{
+    display: flex;
+    align-items: center;
+
+}
+
+
+.formSubmitBtn{
+    margin-left: 75px
 }
