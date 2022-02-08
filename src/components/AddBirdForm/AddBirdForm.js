@@ -37,19 +37,18 @@ function AddBirdForm() {
 //create bird & descriptions to add to dispatch, 
 //dispatch will store object in a reducer, 
 //reducer will post to table 
-// const [birdToAdd, setBirdToAdd]= useState({
-//     common_Name: commonName, 
-//     image_path: chosenPicture,
-//     date_spotted: newDateAdded, 
-//     description: newDescription, 
-//     location_spotted: newLocation, 
-//     birdId: bird_id
-//     })
+const [birdToAdd, setBirdToAdd]= useState({
+    common_Name: commonName, 
+    image_path: chosenPicture,
+    date_spotted: newDateAdded, 
+    description: newDescription, 
+    location_spotted: newLocation, 
+    })
 
 function addBirdToList(){
     dispatch({
         type: 'ADD_BIRD_TO_LIST',
-        payload: birdObjectToAdd
+        payload: birdToAdd
     }) 
       
   }
@@ -74,11 +73,12 @@ function addBirdToList(){
               setCommonName(e.target.value);
             }}
           >
-            {birdDatabaseData.map((bird, i)=> (
+        
+            {birdDatabaseData?.map((bird, i)=> (
             <option key={i}> {bird.Common_name} </option>
 
-            ))};
-
+            ))}
+      
           </select>
           <div className="imageInputAndBtn">
             <input
@@ -141,9 +141,6 @@ function addBirdToList(){
                     alt= 'cool image'
                     width= {300}
                     height= {350}
-                    // STRUGGLING WITH HOW TO SEND THIS IMAGE TO SAGA -> SQL TO STORE AS CORRESPONDING BIRD
-                    // FOR THE BIRD THAT THE CLIENT IS SPECIFYING
-                    //prefer to send it as an img src url but it img.src returns undefined 
                     onClick= {event => chosenPic(img)}
                 />
             ))}
