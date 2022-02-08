@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const router = require ('./routes/image.router');
-
+const birdDatabaseRouter = require('./routes/birddatabase.router');
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
@@ -27,7 +27,9 @@ app.use('/api/user', userRouter);
 
 // Serve static files
 app.use(express.static('build'));
+//component routers
 app.use('/search/photos', router); 
+app.use('/birds', birdDatabaseRouter);
 
 // App Set //
 const PORT = process.env.PORT || 5000;

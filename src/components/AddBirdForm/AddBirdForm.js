@@ -1,13 +1,14 @@
 import "./AddBirdForm.css";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import BirdList from "../BirdList/BirdList";
 
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
-
+  const birdDatabaseData= useSelector(store => store.birdDatabaseData)
+ console.log('birdDataBase is', birdDatabaseData);
   let [newImageSearch, setNewImageSearch] = useState('');
   let [newDateAdded, setNewDateAdded] = useState('');
   let [newDescription, setNewDescription] = useState('');
@@ -22,15 +23,36 @@ function AddBirdForm() {
   function addNewImageSearch(event) {
     event !== undefined ? event.preventDefault() : false; // did this in group work
     dispatch({
-      type: "SET_SEARCH",
+      type: "SET_IMAGE_SEARCH",
       payload: { text: newImageSearch },
     });
   }
 
-//   const birdObjectToAdd {
+  useEffect(()=> {
+    dispatch({
+      type: "FETCH_BIRDS"
+    })
+  }, [])
 
+//create bird & descriptions to add to dispatch, 
+//dispatch will store object in a reducer, 
+//reducer will post to table 
+// let birdObjectToAdd = {
+//     common_Name: commonName, 
+//     image_path: chosenPicture,
+//     date_spotted: newDateAdded, 
+//     description: newDescription, 
+//     location_spotted: newLocation, 
+//     birdId: bird_id
+//     }
 
-//   }
+function addBirdToList(){
+    dispatch({
+        type: 'ADD_BIRD_TO_LIST',
+        payload: birdObjectToAdd
+    }) 
+      
+  }
 
   const chosenPic = (img) => {
     let imgUrl= `https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`
@@ -41,8 +63,10 @@ function AddBirdForm() {
     <>
       {/* on submit function will dispatch the object (cont each each input attr) */}
       <div className="inputContainer">
-        <form>
-          <input
+        <form onSubmit={addBirdToList}>
+          <select 
+            name= "Common-Names"
+            id= "select-common-name"
             type="text"
             id="commonNameText"
             placeholder="Enter The Common Name Here"
@@ -67,7 +91,8 @@ function AddBirdForm() {
             </button>
           </div>
           <input
-            type="text"
+            type="date"
+            name= "spotted"
             id="dateSpottedText"
             placeholder="Date Spotted (leave empty for Dream Bird)"
             value={newDateAdded}
@@ -75,6 +100,7 @@ function AddBirdForm() {
               setNewDateAdded(e.target.value);
             }}
           />
+    
           <input
             type="text"
             id="descriptionText"
@@ -84,6 +110,7 @@ function AddBirdForm() {
               setNewDescription(e.target.value);
             }}
           />
+
           <input
             type="text"
             id="descriptionText"
@@ -93,6 +120,7 @@ function AddBirdForm() {
               setNewLocation(e.target.value);
             }}
           />
+
           <br />
           <button className="formSubmitBtn"> Add Bird To List</button>
         </form>

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
  function* imageSearchSaga() {
-    yield takeEvery('SET_SEARCH', searchParam);
+    yield takeEvery('SET_IMAGE_SEARCH', searchParam);
     
   }
 function* searchParam(action){
@@ -11,7 +11,7 @@ function* searchParam(action){
      
     
     yield put({
-        type: 'SET_RESULTS',
+        type: 'SET_IMAGE_RESULTS',
         payload: response.data
     })
   }
