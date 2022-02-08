@@ -37,14 +37,14 @@ function AddBirdForm() {
 //create bird & descriptions to add to dispatch, 
 //dispatch will store object in a reducer, 
 //reducer will post to table 
-// let birdObjectToAdd = {
+// const [birdToAdd, setBirdToAdd]= useState({
 //     common_Name: commonName, 
 //     image_path: chosenPicture,
 //     date_spotted: newDateAdded, 
 //     description: newDescription, 
 //     location_spotted: newLocation, 
 //     birdId: bird_id
-//     }
+//     })
 
 function addBirdToList(){
     dispatch({
@@ -65,17 +65,21 @@ function addBirdToList(){
       <div className="inputContainer">
         <form onSubmit={addBirdToList}>
           <select 
-            name= "Common-Names"
             id= "select-common-name"
             type="text"
+            size= "10"
             id="commonNameText"
-            placeholder="Enter The Common Name Here"
             value={commonName}
             onChange={(e) => {
               setCommonName(e.target.value);
             }}
-          />
+          >
+            {birdDatabaseData.map((bird, i)=> (
+            <option key={i}> {bird.Common_name} </option>
 
+            ))};
+
+          </select>
           <div className="imageInputAndBtn">
             <input
               type="text"

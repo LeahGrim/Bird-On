@@ -11,7 +11,7 @@ function* fetchBirds(){
     let response = yield axios.get('/birds');
    
     yield put({
-        type: 'SET_COMMON_NAME',
+        type: 'SET_BIRD_DATA',
         payload: response.data
     })
 }

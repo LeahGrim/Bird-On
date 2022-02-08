@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 const birdDatabaseData = (state=null, action) => {
     switch(action.type) {
-        case 'SET_COMMON_NAME': 
+        case 'SET_BIRD_DATA': 
             return action.payload
         default:
             return state;

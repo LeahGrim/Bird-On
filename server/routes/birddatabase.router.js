@@ -6,9 +6,9 @@ const pool = require('../modules/pool')
 
 router.get('/', (req, res) => {
     const query = `
-        SELECT "id", "Order", "Family name", "Common name", "Scientific name" 
+        SELECT "id", "Order", "Family_name", "Common_name", "Scientific_name" 
         FROM "birds" 
-        ORDER BY "Common name" 
+        ORDER BY "Common_name" 
         ASC, "id" ASC  LIMIT 10
         `
     pool.query(query)
