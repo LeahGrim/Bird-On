@@ -19,6 +19,8 @@ function Nav() {
           <Link className="navLink" to="/login">
             Login / Register
           </Link>
+
+          
         )}
 
         {/* If a user is logged in, show these links */}
@@ -28,11 +30,17 @@ function Nav() {
               Home
             </Link>
 
-            <Link className="navLink" to="/info">
+            <Link className= "navLink" to= "/form">
+            <h2> Add Bird Form </h2>
+              </Link>
+            {/* <Link className="navLink" to="/info">
               Info Page
-            </Link>
+            </Link> */}
 
             <LogOutButton className="navLink" />
+
+         
+
           </>
         )}
 

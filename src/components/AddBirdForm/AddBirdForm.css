@@ -1,0 +1,25 @@
+
+
+input{
+    margin: 10px;
+    line-height: 4em;
+    width: 15.5%;
+    text-align: center;
+  }
+  
+  .commonNameInput{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+   
+  }
+  
+  .commonNameButton{
+    width: 20%;
+    margin-left: 20px;
+
+  }
+
+.displayImagesButton{
+    margin-left: 350px;
+}

@@ -19,8 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import AddBirdForm from '../AddBirdForm/AddBirdForm'
 
-import './App.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -107,6 +107,20 @@ function App() {
               :
               // Otherwise, show the Landing page
               <LandingPage />
+            }
+          </Route>
+          <Route
+            exact
+            path="/form"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <AddBirdForm />
+           
+              :
+              // Otherwise, show the Landing page
+              <Redirect to="/user" />
             }
           </Route>
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const router = require ('./routes/image.router');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/user', userRouter);
 
 // Serve static files
 app.use(express.static('build'));
+app.use('/search/photos', router); 
 
 // App Set //
 const PORT = process.env.PORT || 5000;
