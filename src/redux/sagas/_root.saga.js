@@ -2,8 +2,10 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
-import imageSearchSaga from './imageSearch.saga'
-import fetchBirdsSaga from './fetchBirds.saga'
+import imageSearchSaga from './imageSearch.saga';
+import fetchBirdsSaga from './fetchBirds.saga';
+import addBirdToListSaga from './addBirdToList.saga';
+//import addBirdToListSaga from './addBirdToListSaga';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -18,5 +20,6 @@ export default function* rootSaga() {
     userSaga(),
     imageSearchSaga(),
     fetchBirdsSaga(),
+    addBirdToListSaga()
   ]);
 }

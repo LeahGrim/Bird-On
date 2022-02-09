@@ -7,15 +7,17 @@ import { useDispatch, useSelector } from "react-redux";
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
   const birdDatabaseData= useSelector(store => store.birdDatabaseData)
- console.log('birdDataBase is', birdDatabaseData);
+  const user= useSelector(store => store.user)
+  let userId= user.id;
+ 
   let [newImageSearch, setNewImageSearch] = useState('');
   let [newDateAdded, setNewDateAdded] = useState('');
   let [newDescription, setNewDescription] = useState('');
   let [newLocation, setNewLocation] = useState('');
   let [commonName, setCommonName] = useState('');
   let [chosenPicture, setChosenPicture]= useState('');
-  
-
+  let [birdId, setBirdId]= useState('');
+console.log('bird id', birdId)
   //setup dispatch
   const dispatch = useDispatch();
 
@@ -36,14 +38,18 @@ function AddBirdForm() {
 //create bird & descriptions to add to dispatch, 
 //dispatch will store object in a reducer, 
 //reducer will post to table 
-const [birdToAdd, setBirdToAdd]= useState({
-    common_Name: commonName, 
-    image_path: chosenPicture,
-    date_spotted: newDateAdded, 
+let birdToAdd = 
+  {
+    user_id: userId,
+    common_name: commonName, 
     description: newDescription, 
-    location_spotted: newLocation, 
-    })
+    location_spotted: newLocation,
+    date_spotted: newDateAdded, 
+    image_path: chosenPicture,
+    bird_id: birdId
+    }
 
+console.log('bird to add', birdToAdd)
 function addBirdToList(){
     dispatch({
         type: 'ADD_BIRD_TO_LIST',
@@ -61,20 +67,18 @@ function addBirdToList(){
     <>
       {/* on submit function will dispatch the object (cont each each input attr) */}
       <div className="inputContainer">
-        <form onSubmit={addBirdToList}>
+        <form >
           <select 
             id= "select-common-name"
-            type="text"
-            size= "10"
-            id="commonNameText"
-            value={commonName}
+            name= "Add Common Name"
+            value={birdId}
             onChange={(e) => {
-              setCommonName(e.target.value);
+              setBirdId(e.target.value);
             }}
           >
         
             {birdDatabaseData?.map((bird, i)=> (
-            <option key={i}> {bird.Common_name} </option>
+            <option key={i} value={bird.id}> {bird.Common_name} </option>
 
             ))}
       
@@ -125,7 +129,7 @@ function addBirdToList(){
           />
 
           <br />
-          <button className="formSubmitBtn"> Add Bird To List</button>
+          <button className="formSubmitBtn" onClick={addBirdToList}> Add Bird To List</button>
         </form>
       </div>
 
