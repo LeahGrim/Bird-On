@@ -5,7 +5,7 @@ import userSaga from './user.saga';
 import imageSearchSaga from './imageSearch.saga';
 import fetchBirdsSaga from './fetchBirds.saga';
 import addBirdToListSaga from './addBirdToList.saga';
-//import addBirdToListSaga from './addBirdToListSaga';
+import fetchClientListSaga from './fetchClientList.saga';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -20,6 +20,7 @@ export default function* rootSaga() {
     userSaga(),
     imageSearchSaga(),
     fetchBirdsSaga(),
-    addBirdToListSaga()
+    addBirdToListSaga(),
+    fetchClientListSaga(),
   ]);
 }

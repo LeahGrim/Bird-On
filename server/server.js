@@ -4,6 +4,8 @@ require('dotenv').config();
 const router = require ('./routes/image.router');
 const birdDatabaseRouter = require('./routes/birddatabase.router');
 const clientListAddRouter = require('./routes/clientListAdd.router');
+const getListRouter = require('./routes/getList.router');
+
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
@@ -31,7 +33,9 @@ app.use(express.static('build'));
 //component routers
 app.use('/search/photos', router); 
 app.use('/birds', birdDatabaseRouter);
-app.use('/client/birds', clientListAddRouter)
+app.use('/client/birds', clientListAddRouter);
+app.use('/client/birds/add', getListRouter);
+
 // App Set //
 const PORT = process.env.PORT || 5000;
 

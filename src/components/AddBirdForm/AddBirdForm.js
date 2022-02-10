@@ -7,17 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
   const birdDatabaseData= useSelector(store => store.birdDatabaseData)
+  const clientListData = useSelector(store => store.clientList);
   const user= useSelector(store => store.user)
+  console.log('client list is', clientListData);
   let userId= user.id;
  
   let [newImageSearch, setNewImageSearch] = useState('');
   let [newDateAdded, setNewDateAdded] = useState('');
   let [newDescription, setNewDescription] = useState('');
   let [newLocation, setNewLocation] = useState('');
-  let [commonName, setCommonName] = useState('');
   let [chosenPicture, setChosenPicture]= useState('');
   let [birdId, setBirdId]= useState('');
-console.log('bird id', birdId)
+
   //setup dispatch
   const dispatch = useDispatch();
 
@@ -32,6 +33,10 @@ console.log('bird id', birdId)
   useEffect(()=> {
     dispatch({
       type: "FETCH_BIRDS"
+    });
+
+    dispatch({
+      type:"FETCH_CLIENT_LIST"
     })
   }, [])
 
@@ -41,7 +46,6 @@ console.log('bird id', birdId)
 let birdToAdd = 
   {
     user_id: userId,
-    common_name: commonName, 
     description: newDescription, 
     location_spotted: newLocation,
     date_spotted: newDateAdded, 
@@ -49,10 +53,11 @@ let birdToAdd =
     bird_id: birdId
     }
 
-console.log('bird to add', birdToAdd)
-function addBirdToList(){
+
+function addBirdToList(event){
+  event.preventDefault();
     dispatch({
-        type: 'ADD_BIRD_TO_LIST',
+        type: 'ADD_BIRD_TO_CLIENT_LIST',
         payload: birdToAdd
     }) 
       
