@@ -2,9 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     axios({
         method: 'GET',
         url: 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key&text&format=json&nojsoncallback=true',
@@ -22,6 +22,4 @@ router.get('/', (req, res) => {
             res.sendStatus(500);
         })
 });
-
-
 module.exports = router;

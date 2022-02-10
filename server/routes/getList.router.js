@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const pool = require('../modules/pool')
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = 
                         `SELECT 
                         "Common_name",

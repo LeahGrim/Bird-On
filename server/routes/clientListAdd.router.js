@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const pool = require('../modules/pool')
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+
 // this post request takes what the client entered in the add bird form and sends it to the database table
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
         const insertBirdQuery = `
                             INSERT INTO client_bird_list (
                                 "user_id", 

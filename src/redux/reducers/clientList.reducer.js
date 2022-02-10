@@ -1,4 +1,4 @@
-const clientList = (state=null, action) => {
+const clientList = (state=[], action) => {
     switch(action.type) {
         case 'CLIENT_LIST_REDUCER': 
         console.log('in client list reducer', action.payload);

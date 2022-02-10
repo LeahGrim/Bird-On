@@ -7,9 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
   const birdDatabaseData= useSelector(store => store.birdDatabaseData)
-  const clientListData = useSelector(store => store.clientList);
   const user= useSelector(store => store.user)
-  console.log('client list is', clientListData);
+
   let userId= user.id;
  
   let [newImageSearch, setNewImageSearch] = useState('');
@@ -34,10 +33,6 @@ function AddBirdForm() {
     dispatch({
       type: "FETCH_BIRDS"
     });
-
-    dispatch({
-      type:"FETCH_CLIENT_LIST"
-    })
   }, [])
 
 //create bird & descriptions to add to dispatch, 
