@@ -1,0 +1,11 @@
+.FormBtnTitle{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    line-height: 1em; 
+}
+.ToFormBtn{
+    display: flex;
+    margin: auto;
+    
+}

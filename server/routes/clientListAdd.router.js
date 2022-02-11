@@ -5,6 +5,7 @@ const pool = require('../modules/pool')
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // this post request takes what the client entered in the add bird form and sends it to the database table
+//convert empty string to a null statement using NULLIF 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
         const insertBirdQuery = `
