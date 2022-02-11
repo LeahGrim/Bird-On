@@ -21,7 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AddBirdForm from '../AddBirdForm/AddBirdForm';
 import SightedList from '../SightedList/SightedList';
-
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();

@@ -1,12 +1,11 @@
 html,
 body,
-#react-root {
-  height: 100%;
-}
+
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  background-color: rgb(155, 156, 157);
 }
 
 img {
@@ -55,7 +54,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #830048;
   text-decoration: none;
 }
 
@@ -72,7 +71,7 @@ Button
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
+  border-color: #122324;
   color: #008183;
 }
 
@@ -101,7 +100,7 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
+  background-color: #615e8f;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
