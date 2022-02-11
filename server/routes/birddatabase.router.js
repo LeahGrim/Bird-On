@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const pool = require('../modules/pool')
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const query = `
         SELECT "id", "Order", "Family_name", "Common_name", "Scientific_name" 
         FROM "birds" 

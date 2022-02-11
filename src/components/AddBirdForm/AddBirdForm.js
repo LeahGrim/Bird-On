@@ -4,16 +4,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
   const birdDatabaseData= useSelector(store => store.birdDatabaseData)
-  const clientListData = useSelector(store => store.clientList);
+ console.log('bird database data is', birdDatabaseData)
   const user= useSelector(store => store.user)
-  console.log('client list is', clientListData);
+
   let userId= user.id;
  
   let [newImageSearch, setNewImageSearch] = useState('');
-  let [newDateAdded, setNewDateAdded] = useState('');
+  let [newDateAdded, setNewDateAdded] = useState(null);
   let [newDescription, setNewDescription] = useState('');
   let [newLocation, setNewLocation] = useState('');
   let [chosenPicture, setChosenPicture]= useState('');
@@ -34,10 +37,6 @@ function AddBirdForm() {
     dispatch({
       type: "FETCH_BIRDS"
     });
-
-    dispatch({
-      type:"FETCH_CLIENT_LIST"
-    })
   }, [])
 
 //create bird & descriptions to add to dispatch, 
@@ -52,6 +51,8 @@ let birdToAdd =
     image_path: chosenPicture,
     bird_id: birdId
     }
+
+
 
 
 function addBirdToList(event){
@@ -70,24 +71,28 @@ function addBirdToList(event){
   }
   return (
     <>
-      {/* on submit function will dispatch the object (cont each each input attr) */}
+      
       <div className="inputContainer">
         <form >
-          <select 
-            id= "select-common-name"
-            name= "Add Common Name"
+       {/* on submit function will dispatch the object (cont each each input attr) 
+
+          <Autocomplete
+            // id= "select-common-name"
             value={birdId}
-            onChange={(e) => {
-              setBirdId(e.target.value);
-            }}
-          >
+            
+            // onChange={(e) => {
+            //   setBirdId(e.target.value);
+            // }}
+
+            options={birdDatabaseData }
+            renderInput={(params) => <TextField {...params} label="Birds" />}
+         />
         
-            {birdDatabaseData?.map((bird, i)=> (
+             {birdDatabaseData?.map((bird, i)=> (
             <option key={i} value={bird.id}> {bird.Common_name} </option>
 
-            ))}
+            ))} */}
       
-          </select>
           <div className="imageInputAndBtn">
             <input
               type="text"
@@ -106,14 +111,14 @@ function addBirdToList(event){
             type="date"
             name= "spotted"
             id="dateSpottedText"
-            placeholder="Date Spotted (leave empty for Dream Bird)"
             value={newDateAdded}
             onChange={(e) => {
               setNewDateAdded(e.target.value);
             }}
+            
           />
     
-          <input
+          <input 
             type="text"
             id="descriptionText"
             placeholder="Description of Sighting"

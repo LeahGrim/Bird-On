@@ -19,7 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import AddBirdForm from '../AddBirdForm/AddBirdForm'
+import AddBirdForm from '../AddBirdForm/AddBirdForm';
+import SightedList from '../SightedList/SightedList';
 
 
 function App() {
@@ -118,6 +119,19 @@ function App() {
               // redirect them to the /user page
               <AddBirdForm />
            
+              :
+              // Otherwise, show the Landing page
+              <Redirect to="/user" />
+            }
+          </Route>
+          <Route
+            exact
+            path="/sightedList"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <SightedList />
               :
               // Otherwise, show the Landing page
               <Redirect to="/user" />
