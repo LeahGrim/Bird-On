@@ -11,7 +11,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                         "Common_name" as "label",
                         "id"
                          FROM "birds"  
-                         ORDER BY "Common_name" ASC  LIMIT 99;
+                         ORDER BY "Common_name" ASC;
                         `
         pool.query(queryText)
         .then(result => {
