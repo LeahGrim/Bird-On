@@ -34,7 +34,7 @@ app.use(express.static('build'));
 app.use('/search/photos', router); 
 app.use('/birds', birdDatabaseRouter);
 app.use('/client/birds', clientListAddRouter);
-app.use('/client/birds/add', getListRouter);
+app.use('/client/life/list', getListRouter);
 app.use('/birds/common', commonNamesRouter)
 
 // App Set //

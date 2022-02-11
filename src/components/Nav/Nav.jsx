@@ -9,9 +9,7 @@ function Nav() {
 
   return (
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
+        <h2 className="nav-title">Bird On</h2>
       <div>
         {/* If no user is logged in, show these links */}
         {!user.id && (
@@ -19,8 +17,6 @@ function Nav() {
           <Link className="navLink" to="/login">
             Login / Register
           </Link>
-
-          
         )}
 
         {/* If a user is logged in, show these links */}
@@ -33,14 +29,13 @@ function Nav() {
             <Link className= "navLink" to= "/form">
             <h2> Add Bird Form </h2>
               </Link>
+            <Link className= "navLink" to="/sightedList">
+              <h2> View Life List </h2>
+              </Link>
             {/* <Link className="navLink" to="/info">
               Info Page
             </Link> */}
-
             <LogOutButton className="navLink" />
-
-         
-
           </>
         )}
 

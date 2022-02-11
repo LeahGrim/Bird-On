@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { useHistory } from 'react-router-dom';
+
 
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
@@ -17,6 +19,8 @@ function AddBirdForm() {
   let [newDescription, setNewDescription] = useState('');
   let [newLocation, setNewLocation] = useState('');
   let [chosenPicture, setChosenPicture]= useState('');
+  //setup history
+  const history = useHistory();
 
   //setup dispatch
   const dispatch = useDispatch();
@@ -38,6 +42,7 @@ function AddBirdForm() {
     });
   }, [])
 
+  
 //create bird & descriptions to add to dispatch, 
 //dispatch will store object in a reducer, 
 //reducer will post to table 
@@ -51,23 +56,26 @@ let birdToAdd =
     bird_id: birdId
     }
 
-console.log('bird to add is', birdToAdd);
 
 
-
+// requires the client to enter necessary input 
 function addBirdToList(event){
   event.preventDefault();
-    dispatch({
-        type: 'ADD_BIRD_TO_CLIENT_LIST',
-        payload: birdToAdd
-    }) 
+        if (birdToAdd.description === ''){
+          alert(`You Must Enter A Description! (no shortcuts when it comes to describing an encounter in bird world!)`) }
+        else {
+          if (birdToAdd.image_path === ''){
+          alert ('You Must Select Photo');
+        } else {
+        dispatch({
+            type: 'ADD_BIRD_TO_CLIENT_LIST',
+            payload: birdToAdd
+        }) 
+        history.push('/sightedList')
       
-  }
-
-function addBirdToDreamList(event){
-  
+        }
+        }
 }
-
   const chosenPic = (img) => {
     let imgUrl= `https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`
     console.log('chosen picture is', imgUrl);
@@ -117,6 +125,7 @@ function addBirdToDreamList(event){
           <div className= "InputAndBtn">
           <label> Enter The Date Spotted Here <br/> (For DreamList, Enter Today's Date)
           <input
+            required
             type="date"
             name= "spotted"
             id="dateSpottedText"
@@ -163,7 +172,7 @@ function addBirdToDreamList(event){
            </div>
         
          <br/>
-          <button className="formSubmitBtn" onClick={addBirdToList} > Add Bird To List</button>
+          <button className="formSubmitBtn" onClick={addBirdToList} > Add Bird To List </button>
         </form>
       </div>
 

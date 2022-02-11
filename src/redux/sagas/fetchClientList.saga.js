@@ -7,7 +7,7 @@ function* fetchClientListSaga(){
 }
 
 function* fetchClientList(){
-    let response= yield axios.get('/client/birds/add');
+    let response= yield axios.get('/client/life/list');
 
     yield put({
         type: 'CLIENT_LIST_REDUCER',

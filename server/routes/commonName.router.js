@@ -18,7 +18,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
             res.send(result.rows);
         })
         .catch(err => {
-            console.log('error on retrieving info from bird database on bird database router', err);
+            console.log('error on retrieving info from bird database on commonName router', err);
             res.sendStatus(500)
         })
 });
