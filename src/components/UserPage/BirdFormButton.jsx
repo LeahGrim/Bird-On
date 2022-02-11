@@ -1,4 +1,4 @@
-import './BirdFormButton.css';
+import './ButtonStyle.css';
 function BirdFormButton(){
     return(
         <>
