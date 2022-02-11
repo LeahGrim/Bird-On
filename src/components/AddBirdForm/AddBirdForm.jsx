@@ -4,12 +4,15 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
+import Autocomplete from '@mui/material/Autocomplete';
 
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
   const user= useSelector(store => store.user)
-console.log('Bird objectt to add is', birdToAdd)
+  const birdId = useSelector(store => store.birdId);
+  console.log('birdId is', birdId);
+  const commonNameList = useSelector(store => store.commonNameReducer); 
+
   let userId= user.id;
  
   let [newImageSearch, setNewImageSearch] = useState('');
@@ -17,7 +20,6 @@ console.log('Bird objectt to add is', birdToAdd)
   let [newDescription, setNewDescription] = useState('');
   let [newLocation, setNewLocation] = useState('');
   let [chosenPicture, setChosenPicture]= useState('');
-  let [birdId, setBirdId]= useState('');
 
   //setup dispatch
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ console.log('Bird objectt to add is', birdToAdd)
 
   useEffect(()=> {
     dispatch({
-      type: "FETCH_BIRDS"
+      type: 'FETCH_BIRDS'
     });
     dispatch({
       type: 'FETCH_COMMON_NAMES'
@@ -51,7 +53,7 @@ let birdToAdd =
     image_path: chosenPicture,
     bird_id: birdId
     }
-
+console.log('bird to Add is ', birdToAdd);
 
 
 
@@ -74,8 +76,21 @@ function addBirdToList(event){
       
       <div className="inputContainer">
         <form >
-         <CommonNameQuery birdId={birdId}/>
-          
+        <div className="InputAndBtn">
+        <Autocomplete
+            options= {commonNameList}
+            sx={{ width: 350 }}
+            value= {birdId.label}
+            
+            renderInput={(params) => <TextField {...params} label="Common Name" />}
+            onChange={(e, newValue) => { 
+                            dispatch ({ type: 'SET_BIRD_ID',
+                                        payload: newValue.id }) }}
+            
+        />
+     </div>
+         {/* <CommonNameQuery/>
+           */}
           <div className="InputAndBtn">
             <Box  
                 sx={{ width: 350 }}

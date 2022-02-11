@@ -4,11 +4,13 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useState } from "react";
 
+
 function CommonNameQuery(){
-    const [birdId, setBirdId] = useState('');
+    const dispatch = useDispatch();
     // goals:
     //load reducer with common name and id 
     const commonNameList = useSelector(store => store.commonNameReducer); 
+    console.log('common name list id is', commonNameList);
     // save reducer as an empty array 
     //put the common name and id into the reducer 
     return(
@@ -17,12 +19,14 @@ function CommonNameQuery(){
         <Autocomplete
             options= {commonNameList}
             sx={{ width: 350 }}
-            value= {commonNameList.id}
+            value= {birdId.label}
             
             renderInput={(params) => <TextField {...params} label="Common Name" />}
-            onChange={(e) => {
-                 setBirdId(e.target.value)}}
-     />
+            onChange={(e, newValue) => { 
+                            dispatch ({ type: 'SET_BIRD_ID',
+                                        payload: newValue.id }) }}
+            
+        />
      </div>
         </>
     )
