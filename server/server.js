@@ -5,7 +5,7 @@ const router = require ('./routes/image.router');
 const birdDatabaseRouter = require('./routes/birddatabase.router');
 const clientListAddRouter = require('./routes/clientListAdd.router');
 const getListRouter = require('./routes/getList.router');
-
+const commonNamesRouter = require('./routes/commonName.router')
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
@@ -35,6 +35,7 @@ app.use('/search/photos', router);
 app.use('/birds', birdDatabaseRouter);
 app.use('/client/birds', clientListAddRouter);
 app.use('/client/birds/add', getListRouter);
+app.use('/birds/common', commonNamesRouter)
 
 // App Set //
 const PORT = process.env.PORT || 5000;
