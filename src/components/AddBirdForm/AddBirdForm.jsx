@@ -1,5 +1,5 @@
 import "./AddBirdForm.css";
-
+import CommonNameQuery from './CommonNameQuery.jsx';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,6 +36,9 @@ function AddBirdForm() {
   useEffect(()=> {
     dispatch({
       type: "FETCH_BIRDS"
+    });
+    dispatch({
+      type: 'FETCH_COMMON_NAMES'
     });
   }, [])
 
@@ -160,6 +163,7 @@ function addBirdToList(event){
           </div>
           }
         </div>
+        <CommonNameQuery/>
     </>
   );
 }

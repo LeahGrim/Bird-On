@@ -4,6 +4,7 @@ import user from './user.reducer';
 import imageResultList from './imageResultList.reducer';
 import birdDatabaseData from './birdDatabase.reducer';
 import clientList from './clientList.reducer';
+import commonNameReducer from './commonName.reducer'
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   imageResultList, // reducer holds all the images that the client selects on DOM
   birdDatabaseData,
   clientList,
+  commonNameReducer,
 });
 
 export default rootReducer;
