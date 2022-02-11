@@ -9,11 +9,11 @@ import TextField from '@mui/material/TextField';
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
   const user= useSelector(store => store.user)
-
+console.log('Bird objectt to add is', birdToAdd)
   let userId= user.id;
  
   let [newImageSearch, setNewImageSearch] = useState('');
-  let [newDateAdded, setNewDateAdded] = useState(null);
+  let [newDateAdded, setNewDateAdded] = useState('');
   let [newDescription, setNewDescription] = useState('');
   let [newLocation, setNewLocation] = useState('');
   let [chosenPicture, setChosenPicture]= useState('');
@@ -74,7 +74,7 @@ function addBirdToList(event){
       
       <div className="inputContainer">
         <form >
-         <CommonNameQuery/>
+         <CommonNameQuery birdId={birdId}/>
           
           <div className="InputAndBtn">
             <Box  
