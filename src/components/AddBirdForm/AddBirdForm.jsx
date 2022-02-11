@@ -1,5 +1,4 @@
 import "./AddBirdForm.css";
-import CommonNameQuery from './CommonNameQuery.jsx';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Box from '@mui/material/Box';
@@ -8,11 +7,9 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
-  const user= useSelector(store => store.user)
+  const user= useSelector(store => store.user);
   const birdId = useSelector(store => store.birdId);
-  console.log('birdId is', birdId);
   const commonNameList = useSelector(store => store.commonNameReducer); 
-
   let userId= user.id;
  
   let [newImageSearch, setNewImageSearch] = useState('');
@@ -53,7 +50,8 @@ let birdToAdd =
     image_path: chosenPicture,
     bird_id: birdId
     }
-console.log('bird to Add is ', birdToAdd);
+
+console.log('bird to add is', birdToAdd);
 
 
 
@@ -66,6 +64,10 @@ function addBirdToList(event){
       
   }
 
+function addBirdToDreamList(event){
+  
+}
+
   const chosenPic = (img) => {
     let imgUrl= `https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`
     console.log('chosen picture is', imgUrl);
@@ -77,6 +79,7 @@ function addBirdToList(event){
       <div className="inputContainer">
         <form >
         <div className="InputAndBtn">
+          <label> Search for Your Bird by Common Name
         <Autocomplete
             options= {commonNameList}
             sx={{ width: 350 }}
@@ -88,13 +91,12 @@ function addBirdToList(event){
                                         payload: newValue.id }) }}
             
         />
+        </label>
      </div>
-         {/* <CommonNameQuery/>
-           */}
-          <div className="InputAndBtn">
-            <Box  
-                sx={{ width: 350 }}
-            >
+
+            <div className="inputAndLabel"> 
+           <label> Search for Images of Birds: 
+            <Box sx={{ width: 350 }} >
                 <TextField
                   fullWidth
                   id="apiImageSearch"
@@ -105,12 +107,15 @@ function addBirdToList(event){
                   }}
                 />
             </Box>
+            </label>
+         
             <button className="ImageBtn" onClick={addNewImageSearch}>
               Find Images
             </button>
-          </div>
+            </div>
           
           <div className= "InputAndBtn">
+          <label> Enter The Date Spotted Here <br/> (For DreamList, Enter Today's Date)
           <input
             type="date"
             name= "spotted"
@@ -120,8 +125,11 @@ function addBirdToList(event){
               setNewDateAdded(e.target.value);
             }}
           />
+          </label>
           </div>
+      
           <div className="InputAndBtn">
+          <label> Enter the Details of the Sighting or <br/> Enter the Details of Your Dreams
           <Box  
                 sx={{ width: 350 }}
             > 
@@ -135,8 +143,11 @@ function addBirdToList(event){
             }}
           />
           </Box>
+          </label>
             </div>
+
           <div className ="InputAndBtn">
+          <label> Enter the City/State or City/Country of Sighting <br/> For DreamList, Leave Input Field Empty
           <Box  
             sx={{ width: 350 }}
           >
@@ -145,14 +156,14 @@ function addBirdToList(event){
             id="descriptionText"
             placeholder="(City, State) or (City, Country) Spotted"
             value={newLocation}
-            onChange={(e) => {
-              setNewLocation(e.target.value);
-            }}
+            onChange={(e) => { setNewLocation(e.target.value) }}
           />
            </Box>
+           </label>
            </div>
-         
-          <button className="formSubmitBtn" onClick={addBirdToList}> Add Bird To List</button>
+        
+         <br/>
+          <button className="formSubmitBtn" onClick={addBirdToList} > Add Bird To List</button>
         </form>
       </div>
 
@@ -167,7 +178,7 @@ function addBirdToList(event){
                     alt= 'cool image'
                     width= {300}
                     height= {350}
-                    onClick= {event => chosenPic(img)}
+                    onClick= {event => chosenPic(img)} 
                 />
             ))}
           </div>

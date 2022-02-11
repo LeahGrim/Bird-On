@@ -14,14 +14,12 @@ input{
     display: flex;
     width: 350px;
     background-color: rgb(191, 182, 184);
-    
   }
   
  
   
 
 .ImageBtn{
-    line-height: inherit;
     margin-left: 10px;
 }
 
@@ -29,7 +27,7 @@ input{
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
- 
+  border: 2px solid black;
 }
 
 
