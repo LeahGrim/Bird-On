@@ -1,16 +1,13 @@
 import "./AddBirdForm.css";
 import CommonNameQuery from './CommonNameQuery.jsx';
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-
+import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+
 
 function AddBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
-  const birdDatabaseData= useSelector(store => store.birdDatabaseData)
- console.log('bird database data is', birdDatabaseData)
   const user= useSelector(store => store.user)
 
   let userId= user.id;
@@ -77,39 +74,28 @@ function addBirdToList(event){
       
       <div className="inputContainer">
         <form >
-       {/* on submit function will dispatch the object (cont each each input attr) 
-
-          <Autocomplete
-            // id= "select-common-name"
-            value={birdId}
-            
-            // onChange={(e) => {
-            //   setBirdId(e.target.value);
-            // }}
-
-            options={birdDatabaseData }
-            renderInput={(params) => <TextField {...params} label="Birds" />}
-         />
-        
-             {birdDatabaseData?.map((bird, i)=> (
-            <option key={i} value={bird.id}> {bird.Common_name} </option>
-
-            ))} */}
-      
-          <div className="imageInputAndBtn">
-            <input
-              type="text"
-              id="apiImageSearch"
-              placeholder="Search for Image of Bird"
-              value={newImageSearch}
-              onChange={(e) => {
-                setNewImageSearch(e.target.value);
-              }}
-            />
+         <CommonNameQuery/>
+          
+          <div className="InputAndBtn">
+            <Box  
+                sx={{ width: 350 }}
+            >
+                <TextField
+                  fullWidth
+                  id="apiImageSearch"
+                  placeholder="Search for Image of Bird"
+                  value={newImageSearch}
+                  onChange={(e) => {
+                    setNewImageSearch(e.target.value);
+                  }}
+                />
+            </Box>
             <button className="ImageBtn" onClick={addNewImageSearch}>
               Find Images
             </button>
           </div>
+          
+          <div className= "InputAndBtn">
           <input
             type="date"
             name= "spotted"
@@ -118,11 +104,14 @@ function addBirdToList(event){
             onChange={(e) => {
               setNewDateAdded(e.target.value);
             }}
-            
           />
-    
-          <input 
-            type="text"
+          </div>
+          <div className="InputAndBtn">
+          <Box  
+                sx={{ width: 350 }}
+            > 
+            <TextField
+            fullWidth
             id="descriptionText"
             placeholder="Description of Sighting"
             value={newDescription}
@@ -130,9 +119,14 @@ function addBirdToList(event){
               setNewDescription(e.target.value);
             }}
           />
-
-          <input
-            type="text"
+          </Box>
+            </div>
+          <div className ="InputAndBtn">
+          <Box  
+            sx={{ width: 350 }}
+          >
+          <TextField
+            fullWidth
             id="descriptionText"
             placeholder="(City, State) or (City, Country) Spotted"
             value={newLocation}
@@ -140,8 +134,9 @@ function addBirdToList(event){
               setNewLocation(e.target.value);
             }}
           />
-
-          <br />
+           </Box>
+           </div>
+         
           <button className="formSubmitBtn" onClick={addBirdToList}> Add Bird To List</button>
         </form>
       </div>
@@ -163,7 +158,7 @@ function addBirdToList(event){
           </div>
           }
         </div>
-        <CommonNameQuery/>
+   
     </>
   );
 }

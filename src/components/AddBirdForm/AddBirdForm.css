@@ -1,34 +1,36 @@
-
+.inputContainer{
+  margin: 10px;
+  line-height: 3em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 input{
-    margin: 10px;
-    line-height: 3em;
-    width: 20%;
+    line-height: 4em;
     text-align: center;
-    display: flex
+    display: flex;
+    width: 350px;
   }
   
-  .commonNameInput{
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-   
-  }
+ 
   
 
 .ImageBtn{
     line-height: inherit;
-    height: 35px;
+    margin-left: 10px;
+    
+   
  
 }
 
-.imageInputAndBtn{
-    display: flex;
-    align-items: center;
+.InputAndBtn{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+ 
 
 }
 
 
-.formSubmitBtn{
-    margin-left: 75px
-}
