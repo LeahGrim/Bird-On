@@ -12,18 +12,16 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                             INSERT INTO client_bird_list (
                                 "user_id", 
                                 "description", 
-                                "location_spotted", 
-                                "date_spotted", 
+                                "location_spotted",  
                                 "image_path", 
                                 "bird_id")
                             VALUES
-                                ($1, $2, $3, $4, $5, $6)
+                                ($1, $2, $3, $4, $5)
                              ` 
         const queryParams= [
                             req.body.user_id, 
                             req.body.description,
                             req.body.location_spotted,
-                            req.body.date_spotted, 
                             req.body.image_path, 
                             req.body.bird_id
                             ]

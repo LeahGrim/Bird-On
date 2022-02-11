@@ -121,7 +121,7 @@ function App() {
            
               :
               // Otherwise, show the Landing page
-              <Redirect to="/user" />
+              <Redirect to="/login" />
             }
           </Route>
           <Route
