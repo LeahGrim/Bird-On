@@ -1,0 +1,8 @@
+.LifeListHeader{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/altocumulus.jpg/altocumulus.jpg/metofficegovuk%3AheroXLarge") ;
+    background-position: center;
+    background-size: inherit;
+    }
