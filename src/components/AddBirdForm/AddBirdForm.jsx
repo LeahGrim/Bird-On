@@ -72,7 +72,6 @@ function addBirdToList(event){
             payload: birdToAdd
         }) 
         history.push('/sightedList')
-      
         }
         }
 }
@@ -81,6 +80,7 @@ function addBirdToList(event){
     console.log('chosen picture is', imgUrl);
     setChosenPicture(imgUrl);
   }
+  
   return (
     <>
       
@@ -138,7 +138,7 @@ function addBirdToList(event){
           </div>
       
           <div className="InputAndBtn">
-          <label> Enter the Details of the Sighting or <br/> Enter the Details of Your Dreams
+          <label> What Was the Bird Doing? <br/> DREAM LIST: Enter the Details of Your Dreams
           <Box  
                 sx={{ width: 350 }}
             > 
