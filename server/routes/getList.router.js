@@ -19,7 +19,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     const queryParams= req.user.id;
     pool.query(queryText, [queryParams])
     .then(dbRes => {
-        console.log('dbRes is', dbRes);
         res.send(dbRes.rows)
     }).catch(err => {
         console.log('error on the get list .router', err)
