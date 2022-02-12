@@ -23,6 +23,20 @@
   color: #f2f2f2;
   text-align: center;
   padding: 24px 10px;
+
+  font-size: 15px;
+  background-image: ('https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/altocumulus.jpg/altocumulus.jpg/metofficegovuk%3AheroXLarge');
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: 2px solid black;
+  cursor: pointer;
+  outline: 0;
+}
+.logOutLink{
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
 
@@ -32,6 +46,7 @@
   cursor: pointer;
   outline: 0;
 }
+
 
 .navLink:hover {
   background-color: #44aece;

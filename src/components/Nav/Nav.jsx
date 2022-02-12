@@ -28,7 +28,7 @@ function Nav() {
 
             <Link className= "navLink" to= "/form">
             <h2> Add Bird Form </h2>
-              </Link>
+            </Link>
             <Link className= "navLink" to="/sightedList">
               <h2> View Life List </h2>
               </Link>
