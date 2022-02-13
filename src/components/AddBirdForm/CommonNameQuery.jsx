@@ -8,17 +8,16 @@ import { useHistory } from 'react-router-dom';
 
 function CommonNameQuery (){
     const commonNameList = useSelector(store => store.commonNameReducer); 
+    
     //setup history
     const history = useHistory();
-
-    //setup dispatch
-    function addNewImageSearch(event) {
-        event !== undefined ? event.preventDefault() : false; // did this in group work
+    
+    useEffect(()=> {
         dispatch({
-          type: "SET_IMAGE_SEARCH",
-          payload: { text: newImageSearch },
+          type: 'FETCH_COMMON_NAMES'
         });
-      }
+      }, [])
+
 
     return(
     <>  
@@ -33,13 +32,15 @@ function CommonNameQuery (){
             onChange={(e, newValue) => { 
                             dispatch ({ type: 'SET_BIRD_ID',
                                         payload: newValue.id })
-                            dispatch ({
-                                        type:'SET_COMMON_NAME',
-                                        payload: newValue.label
-                                      }) }}
+                             }}
             
         />
         </label>
+
+        <button className="ImageBtn">
+            NEXT  
+            </button>
+            
      </div>
     </>
     )

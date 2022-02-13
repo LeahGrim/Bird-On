@@ -6,7 +6,8 @@ import birdDatabaseData from './birdDatabase.reducer';
 import clientList from './clientList.reducer';
 import commonNameReducer from './commonName.reducer';
 import birdId from './birdId.reducer';
-import commonNameQuery from './queryCommonName.reducer';
+import dreamListReducer from './dreamList.reducer';
+import formReducer from './birdForm.reducer'
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   clientList,
   commonNameReducer,
   birdId,
-  commonNameQuery
+  dreamListReducer,
+  formReducer,
 });
 
 export default rootReducer;

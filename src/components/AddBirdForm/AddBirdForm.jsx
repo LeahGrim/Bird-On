@@ -56,36 +56,38 @@ let birdToAdd =
     bird_id: birdId
     }
 
-
+console.log('bird to add ', birdToAdd)
 
 // requires the client to enter necessary input 
 function addBirdToList(event){
   event.preventDefault();
-        if (birdToAdd.description === ''){
-          alert(`You Must Enter A Description! (no shortcuts when it comes to describing an encounter in bird world!)`) }
-        else {
-          if (birdToAdd.image_path === ''){
-          alert ('You Must Select Photo');
-        } else {
+        // if (birdToAdd.description === ''){
+        //   alert(`You Must Enter A Description! (no shortcuts when it comes to describing an encounter in bird world!)`) }
+        // else {
+        //   if (birdToAdd.image_path === ''){
+        //   alert ('You Must Select Photo');
+        // } else {
         dispatch({
             type: 'ADD_BIRD_TO_CLIENT_LIST',
             payload: birdToAdd
         }) 
         history.push('/sightedList')
-      
-        }
-        }
+
 }
-  const chosenPic = (img) => {
+  function chosenPic (img)  {
     let imgUrl= `https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`
     console.log('chosen picture is', imgUrl);
     setChosenPicture(imgUrl);
+    return(
+      <> <div className="redBorder"> {chosenPicture} </div> </>
+    )
+  
   }
   return (
     <>
       
       <div className="inputContainer">
-        <form >
+        <form>
         <div className="InputAndBtn">
           <label> Search for Your Bird by Common Name
         <Autocomplete

@@ -1,0 +1,13 @@
+.lifeListDiv{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: column-wrap;
+    margin: auto;
+    align-items: center;
+
+}
+
+.birdImage{
+    height: 600px;
+    width: 500px
+}

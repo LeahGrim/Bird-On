@@ -22,7 +22,13 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import AddBirdForm from '../AddBirdForm/AddBirdForm';
 import SightedList from '../SightedList/SightedList';
 import './App.css';
-
+import DateForm from '../AddBirdForm/DateForm.jsx';
+import DescriptionForm from '../AddBirdForm/DescriptionForm.jsx';
+import ImageSearch from '../AddBirdForm/ImageSearch.jsx';
+import LocationForm from '../AddBirdForm/LocationForm.jsx';
+import PictureForm from '../AddBirdForm/PictureForm.jsx';
+import CommonNameQuery from '../AddBirdForm/CommonNameQuery.jsx'
+import DreamList from '../DreamList/DreamList'
 function App() {
   const dispatch = useDispatch();
 
@@ -110,15 +116,23 @@ function App() {
               <LandingPage />
             }
           </Route>
-          <Route
-            exact
+          <Route exact
             path="/form"
           >
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
               <AddBirdForm />
-           
+              :
+              // Otherwise, show the Landing page
+              <Redirect to="/login" />
+            }
+          </Route>
+          <Route exact  path="/pageone" >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <CommonNameQuery />
               :
               // Otherwise, show the Landing page
               <Redirect to="/login" />
@@ -132,6 +146,17 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               <SightedList />
+              :
+              // Otherwise, show the Landing page
+              <Redirect to="/user" />
+            }
+          </Route>
+          <Route exact path="/dreamList"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <DreamList />
               :
               // Otherwise, show the Landing page
               <Redirect to="/user" />
