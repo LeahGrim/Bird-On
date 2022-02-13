@@ -8,22 +8,27 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 //convert empty string to a null statement using NULLIF 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-        const insertBirdQuery = `
+ console.log('req,body is', req.body);
+    const insertBirdQuery = `
                             INSERT INTO client_bird_list (
                                 "user_id", 
                                 "description", 
                                 "location_spotted",  
+                                "date_spotted",
                                 "image_path", 
-                                "bird_id")
+                                "bird_id"
+                                )
                             VALUES
-                                ($1, $2, $3, $4, $5)
+                                ($1, $2, $3, TO_DATE($4, 'MM/DD/YYYY'), $5, $6);
                              ` 
         const queryParams= [
                             req.body.user_id, 
                             req.body.description,
-                            req.body.location_spotted,
+                            req.body.location_spotted,  
+                            req.body.date_spotted,
                             req.body.image_path, 
                             req.body.bird_id
+                          
                             ]
           pool.query(insertBirdQuery, queryParams)
           .then(dbRes => {

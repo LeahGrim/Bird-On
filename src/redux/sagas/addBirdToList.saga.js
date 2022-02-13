@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function* addBird(action){
      yield axios.post('/client/birds', action.payload)
-    
+    console.log('action payload is', action.payload);
     yield put({
         type:'FETCH_CLIENT_LIST'
     })
