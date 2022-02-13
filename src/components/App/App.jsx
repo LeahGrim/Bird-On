@@ -27,9 +27,8 @@ import DescriptionForm from '../AddBirdForm/DescriptionForm.jsx';
 import ImageSearch from '../AddBirdForm/ImageSearch.jsx';
 import LocationForm from '../AddBirdForm/LocationForm.jsx';
 import PictureForm from '../AddBirdForm/PictureForm.jsx';
-import CommonNameQuery from '../AddBirdForm/CommonNameQuery.jsx';
-import DreamList from '../DreamList/DreamList.jsx';
-
+import CommonNameQuery from '../AddBirdForm/CommonNameQuery.jsx'
+import DreamList from '../DreamList/DreamList'
 function App() {
   const dispatch = useDispatch();
 

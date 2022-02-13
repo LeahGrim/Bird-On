@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 
 function CommonNameQuery (){
     const commonNameList = useSelector(store => store.commonNameReducer); 
-
+    
     //setup history
     const history = useHistory();
     

@@ -74,10 +74,14 @@ function addBirdToList(event){
         history.push('/sightedList')
 
 }
-  const chosenPic = (img) => {
+  function chosenPic (img)  {
     let imgUrl= `https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`
     console.log('chosen picture is', imgUrl);
     setChosenPicture(imgUrl);
+    return(
+      <> <div className="redBorder"> {chosenPicture} </div> </>
+    )
+  
   }
   return (
     <>

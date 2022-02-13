@@ -1,17 +1,13 @@
 
-import { useDispatch, useSelector } from "react-redux";
-
-const user= useSelector(store => store.user);
-
 //Form reducer to store the clients addition  
 const formReducer = (
     state = {
-        userId: user.id, 
+        userId: '', 
         description: '',
         location_spotted: '',
         date_spotted: '', 
         image_path: '', 
-        bird_id= ''
+        bird_id: ''
 }, 
 action) => {
     switch (action.type){
@@ -23,8 +19,8 @@ action) => {
             return{...state, support: (state.date_spotted = action.payload)};
         case 'ADD_IMAGE':
             return{...state, comments: (state.image_path = action.payload)};
-        case 'ADD_BIRD_ID':
-            return{...state, comments: (state.bird_id = action.payload)};
+        // case 'SET_BIRD_ID':
+        //     return{...state, comments: (state.bird_id = action.payload)};
             
             case 'EMPTY_STATE':
             state= {
