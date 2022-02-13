@@ -75,6 +75,12 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+            
+
+
+
+
+
           <Route
             exact
             path="/login"
@@ -128,16 +134,7 @@ function App() {
               <Redirect to="/login" />
             }
           </Route>
-          <Route exact  path="/pageone" >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <CommonNameQuery />
-              :
-              // Otherwise, show the Landing page
-              <Redirect to="/login" />
-            }
-          </Route>
+        
           <Route
             exact
             path="/sightedList"
