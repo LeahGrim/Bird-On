@@ -9,7 +9,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = 
                         `SELECT 
                         "Common_name" as "label",
-                        "id"
+                        "id", 
+                        "Scientific_name"
                          FROM "birds"  
                          ORDER BY "Common_name" ASC;
                         `

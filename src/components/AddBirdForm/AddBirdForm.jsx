@@ -96,7 +96,7 @@ function addBirdToList(event){
             value= {birdId.label}
             
             renderInput={(params) => <TextField {...params} label="Common Name" />}
-            onChange={(e, newValue) => { 
+            onChange={(e, newValue) => { setNewImageSearch(newValue.Scientific_name)
                             dispatch ({ type: 'SET_BIRD_ID',
                                         payload: newValue.id }) }}
             
