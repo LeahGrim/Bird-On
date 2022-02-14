@@ -18,7 +18,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-
+console.log('date_spotted is', req.body.date_spotted);
     const insertBirdQuery = `
                             INSERT INTO client_bird_list (
                                 "user_id", 
@@ -29,7 +29,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                                 "bird_id"
                                 )
                             VALUES
-                                ($1, $2, $3, TO_DATE($4, 'YYYY-MM-DD'), $5, $6);
+                                ($1, $2, $3, NULLIF($4, '')::date, $5, $6);
                              ` 
         const queryParams= [
                             req.user.id, 
@@ -38,7 +38,6 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                             req.body.date_spotted,
                             req.body.image_path, 
                             req.body.bird_id
-                          
                             ]
           pool.query(insertBirdQuery, queryParams)
           .then(dbRes => {

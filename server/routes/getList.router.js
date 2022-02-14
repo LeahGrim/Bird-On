@@ -14,7 +14,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                         "image_path"
                     FROM birds 
                     JOIN client_bird_list ON bird_id= birds.id
-                    WHERE user_id = $1; 
+                    WHERE user_id = $1 AND client_bird_list."date_spotted" is NOT NULL; 
                         `
     const queryParams= req.user.id;
     pool.query(queryText, [queryParams])
