@@ -1,14 +1,24 @@
 const express = require('express');
-const router = express.Router();
-const axios = require('axios');
-const pool = require('../modules/pool')
-const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
+const encryptLib = require('../modules/encryption');
+const pool = require('../modules/pool');
+const userStrategy = require('../strategies/user.strategy');
 
-// this post request takes what the client entered in the add bird form and sends it to the database table
-//convert empty string to a null statement using NULLIF 
+const router = express.Router();
+
+// Handles Ajax request for user information if user is authenticated
+router.get('/', rejectUnauthenticated, (req, res) => {
+  // Send back user object from the session (previously queried from the database)
+  res.send(req.user);
+  console.log('this is req.user', req.user);
+});
+//console.log('this is req.user', req.user);
+
 
 router.post('/', rejectUnauthenticated, (req, res) => {
- console.log('req,body is', req.body);
+
     const insertBirdQuery = `
                             INSERT INTO client_bird_list (
                                 "user_id", 
@@ -19,10 +29,10 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                                 "bird_id"
                                 )
                             VALUES
-                                ($1, $2, $3, TO_DATE($4, 'MM/DD/YYYY'), $5, $6);
+                                ($1, $2, $3, TO_DATE($4, 'YYYY-MM-DD'), $5, $6);
                              ` 
         const queryParams= [
-                            req.body.user_id, 
+                            req.user.id, 
                             req.body.description,
                             req.body.location_spotted,  
                             req.body.date_spotted,

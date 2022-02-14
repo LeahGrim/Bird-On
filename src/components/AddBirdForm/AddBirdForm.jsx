@@ -140,7 +140,7 @@ function addBirdToList(event){
           </div>
       
           <div className="InputAndBtn">
-          <label> Enter the Details of the Sighting or <br/> Enter the Details of Your Dreams
+          <label> What Was the Bird Doing? <br/> Enter the Details of Your Dreams
           <Box  
                 sx={{ width: 350 }}
             > 

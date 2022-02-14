@@ -27,8 +27,10 @@ import DescriptionForm from '../AddBirdForm/DescriptionForm.jsx';
 import ImageSearch from '../AddBirdForm/ImageSearch.jsx';
 import LocationForm from '../AddBirdForm/LocationForm.jsx';
 import PictureForm from '../AddBirdForm/PictureForm.jsx';
-import CommonNameQuery from '../AddBirdForm/CommonNameQuery.jsx'
-import DreamList from '../DreamList/DreamList'
+import CommonNameQuery from '../AddBirdForm/CommonNameQuery.jsx';
+import ListIdentifier from '../AddBirdForm/ListIdentifier';
+import DreamList from '../DreamList/DreamList';
+import Summary from '../AddBirdForm/Summary.jsx';
 function App() {
   const dispatch = useDispatch();
 
@@ -74,11 +76,59 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/common"
+          >
+            <CommonNameQuery />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/description"
+          >
+            <DescriptionForm />
+          </ProtectedRoute>
 
-            
+          <ProtectedRoute
+            exact
+            path="/listIdentifier"
+          >
+            <ListIdentifier />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            exact
+            path="/location"
+          >
+            <LocationForm />
+          </ProtectedRoute>
 
 
 
+          <ProtectedRoute
+            exact
+            path="/image"
+          >
+            <ImageSearch />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/date"
+          >
+            <DateForm />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            exact
+            path="/summary"
+          >
+            <Summary />
+          </ProtectedRoute>
 
 
           <Route
