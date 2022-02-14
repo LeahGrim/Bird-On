@@ -9,7 +9,7 @@ function BirdFormButton(){
         <h1> Dreaming of Seeing a Specific Bird?  </h1>
         </div>
         <div>
-        <Link to= "/form">
+        <Link to= "/listIdentifier">
         <button className= "ToFormBtn"><h2> Add Bird to List</h2></button>
         </Link>
       <br/> 

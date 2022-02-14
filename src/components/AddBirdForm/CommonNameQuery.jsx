@@ -4,14 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function CommonNameQuery (){
     const commonNameList = useSelector(store => store.commonNameReducer); 
-    
+    const birdId = useSelector(store => store.birdId);
+    //setup dispatch
+    const dispatch = useDispatch();
     //setup history
     const history = useHistory();
-    
+   
     useEffect(()=> {
         dispatch({
           type: 'FETCH_COMMON_NAMES'
@@ -30,6 +32,7 @@ function CommonNameQuery (){
             
             renderInput={(params) => <TextField {...params} label="Common Name" />}
             onChange={(e, newValue) => { 
+                          //console.log('this is the newValue.id', newValue.id);
                             dispatch ({ type: 'SET_BIRD_ID',
                                         payload: newValue.id })
                              }}
@@ -37,9 +40,9 @@ function CommonNameQuery (){
         />
         </label>
 
-        <button className="ImageBtn">
+        <Link to="/description"><button className="ImageBtn" >
             NEXT  
-            </button>
+            </button></Link>
             
      </div>
     </>

@@ -2,7 +2,6 @@
 //Form reducer to store the clients addition  
 const formReducer = (
     state = {
-        userId: '', 
         description: '',
         location_spotted: '',
         date_spotted: '', 
@@ -12,15 +11,15 @@ const formReducer = (
 action) => {
     switch (action.type){
         case 'ADD_DESCRIPTION':
-            return {...state, feeling: (state.description = action.payload)};
+            return {...state, description: (state.description = action.payload)};
         case 'ADD_LOCATION':
-            return{...state, understanding: (state.location_spotted = action.payload)};
+            return{...state, location_spotted: (state.location_spotted = action.payload)};
         case 'ADD_DATE':
-            return{...state, support: (state.date_spotted = action.payload)};
+            return{...state, date_spotted: (state.date_spotted = action.payload)};
         case 'ADD_IMAGE':
-            return{...state, comments: (state.image_path = action.payload)};
-        // case 'SET_BIRD_ID':
-        //     return{...state, comments: (state.bird_id = action.payload)};
+            return{...state, image_path: (state.image_path = action.payload)};
+        case 'SET_BIRD_ID':
+            return{...state, bird_id: (state.bird_id = action.payload)};
             
             case 'EMPTY_STATE':
             state= {
