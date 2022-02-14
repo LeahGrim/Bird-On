@@ -7,7 +7,8 @@ function* DeleteBirdSaga(){
 }
 
 function* deleteBirdId(action){
-    let response= yield axios.delete(`/client/dream/list/{action.payload}`);
+    console.log('action is', action);
+    let response= yield axios.delete(`client/dream/list/${action.payload}`);
 
     yield put({
         type: 'CLIENT_LIST_REDUCER',

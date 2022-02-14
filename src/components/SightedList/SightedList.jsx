@@ -6,8 +6,10 @@ import React, { useState, useEffect } from "react";
 
 function SightedList (){
     const list = useSelector(store => store.clientList);
+    const user= useSelector(store => store.user);
+
     console.log('list is', list);
-  //setup dispatch
+    //setup dispatch
   const dispatch = useDispatch();
 
 function showDescription (){
@@ -15,7 +17,8 @@ function showDescription (){
 }
     useEffect(()=> {
         dispatch({
-          type: 'FETCH_CLIENT_LIST'
+          type: 'FETCH_CLIENT_LIST', 
+          payload: user.id
         });
         dispatch({
           type: 'FETCH_COMMON_NAMES'
@@ -46,12 +49,12 @@ function showDescription (){
                                     </div>        
                                     {/* DESCRIPTION CONTENT FOR BIRD */}
                                     <div className="containerForBirdDescription" > 
-                                        <h3> {bird.Order} </h3>
-                                        <h3> {bird.Family_name}</h3>
-                                        <h3> {bird.Scientific_Name} </h3>
-                                        <h3> {bird.date_spotted} </h3>
-                                        <h3> {bird.description}</h3>
-                                        <h3> {bird.location_spotted} </h3>
+                                        <h3> Order: {bird.Order} </h3>
+                                        <h3> Family: {bird.Family_name}</h3>
+                                        <h3> Scientific Name: {bird.Scientific_Name} </h3>
+                                        <h3> Sighting Date: {bird.date_spotted} </h3>
+                                        <h3> Bird Notes: {bird.description}</h3>
+                                        <h3> Location Spotted: {bird.location_spotted} </h3>
                                     </div>
                     </div>
                 ))}

@@ -7,6 +7,9 @@ const clientListAddRouter = require('./routes/clientListAdd.router');
 const getListRouter = require('./routes/getList.router');
 const commonNamesRouter = require('./routes/commonName.router')
 const getDreamListRouter = require('./routes/getDreamList.router')
+//import delete router
+const deleteRouter = require('./routes/deleteBird.router');
+
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
@@ -38,8 +41,11 @@ app.use('/birds', birdDatabaseRouter);
 app.use('/client/birds', clientListAddRouter);
 //GET request to retrieve life list
 app.use('/client/life/list', getListRouter);
+//GET request to retrieve dream list
 app.use('/client/dream/list', getDreamListRouter);
 app.use('/birds/common', commonNamesRouter)
+//DELETE request to delete bird
+app.use('/bird/delete', deleteRouter)
 
 // App Set //
 const PORT = process.env.PORT || 5000;

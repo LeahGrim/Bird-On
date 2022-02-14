@@ -71,16 +71,13 @@ function addBirdToList(event){
             type: 'ADD_BIRD_TO_CLIENT_LIST',
             payload: birdToAdd
         }) 
-        history.push('/sightedList')
+        history.push('/lifeList')
 
 }
   function chosenPic (img)  {
     let imgUrl= `https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`
     console.log('chosen picture is', imgUrl);
     setChosenPicture(imgUrl);
-    return(
-      <> <div className="redBorder"> {chosenPicture} </div> </>
-    )
   
   }
   return (
@@ -192,6 +189,7 @@ function addBirdToList(event){
                     onClick= {event => chosenPic(img)} 
                 />
             ))}
+           
           </div>
           }
         </div>

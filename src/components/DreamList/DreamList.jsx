@@ -15,14 +15,23 @@ function showDescription (){
 }
     useEffect(()=> {
         dispatch({
-          type: 'FETCH_DREAM_LIST'
-        });
+            type: 'FETCH_DREAM_LIST'
+          });
       }, [])
 
     return (
         <>
         <div className= "LifeListHeader">
         <h1> Birds Engrained In Your Dreams</h1>
+        </div>
+        <div className= "filter">
+            <input placeholder="Filter by Order"> 
+            </input>
+            <input placeholder="Filter by Family"> 
+            </input>
+            <input placeholder="Filter by Year"> 
+            </input>
+            <h3> Count: </h3>
         </div>
         <div className="lifeListContainer"> 
         {list && 
@@ -41,15 +50,14 @@ function showDescription (){
                                     <div className="birdCommonNameTitle"> 
                                     <h2> {bird.Common_name} </h2>
                                     <DreamDeleteButton bird= {bird} key={index}/>
-                                    <button> Edit </button>
                                     <button> Spotted! </button>
                                     </div>        
                                     {/* DESCRIPTION CONTENT FOR BIRD */}
                                     <div className="containerForBirdDescription" > 
-                                        <h3> Order: </h3> <h4> {bird.Order} </h4>
-                                        <h3> Family: </h3> <h4> {bird.Family_name}</h4>
-                                        <h3> Species: </h3> <h4>{bird.Scientific_Name} </h4>
-                                        <h3> What Was The Bird Doing? </h3> <h4>{bird.description}</h4>
+                                        <h3> Order: {bird.Order} </h3>
+                                        <h3> Family: {bird.Family_name} </h3> 
+                                        <h3> Species: {bird.Scientific_name} </h3>
+                                        <h3> What Was The Bird Doing? (your notes): {bird.description}</h3>
                                       
                                     </div>
                     </div>

@@ -8,6 +8,7 @@ import addBirdToListSaga from './addBirdToList.saga';
 import fetchClientListSaga from './fetchClientList.saga';
 import fetchCommonNameSaga from'./fetchCommonName.saga';
 import fetchDreamListSaga from './fetchDreamList.saga'
+import DeleteBirdSaga from './DeleteBird.saga'
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -25,6 +26,7 @@ export default function* rootSaga() {
     addBirdToListSaga(),
     fetchClientListSaga(),
     fetchCommonNameSaga(),
-    fetchDreamListSaga()
+    fetchDreamListSaga(), 
+    DeleteBirdSaga()
   ]);
 }

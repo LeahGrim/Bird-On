@@ -187,7 +187,7 @@ function App() {
         
           <Route
             exact
-            path="/sightedList"
+            path="/lifeList"
           >
             {user.id ?
               // If the user is already logged in, 
