@@ -2,7 +2,7 @@ import "../SightedList/SightedList.css";
 import "./DreamList.css"
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
-import DreamDeleteButton from "../DreamDeleteButton/DreamDeleteButton.jsx";
+import DreamDeleteButton from "../DeleteButton/DreamDeleteButton.jsx";
 
 function DreamList (){
     const list = useSelector(store => store.dreamListReducer);

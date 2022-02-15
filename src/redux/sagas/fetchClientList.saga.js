@@ -6,8 +6,8 @@ function* fetchClientListSaga(){
 
 }
 
-function* fetchClientList(action){
-    let response= yield axios.get(`/client/life/list/${action.payload}`);
+function* fetchClientList(){
+    let response= yield axios.get(`/client/life/list/`);
 
     yield put({
         type: 'CLIENT_LIST_REDUCER',

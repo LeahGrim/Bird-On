@@ -2,13 +2,12 @@ import "./SightedList.css";
 import LifeListDescription from "./LifeListDescription.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
-
+import LifeListButton from "../DeleteButton/LifeListButton.jsx";
 
 function SightedList (){
     const list = useSelector(store => store.clientList);
     const user= useSelector(store => store.user);
-
-    console.log('list is', list);
+console.log('list is', list)
     //setup dispatch
   const dispatch = useDispatch();
 
@@ -17,8 +16,7 @@ function showDescription (){
 }
     useEffect(()=> {
         dispatch({
-          type: 'FETCH_CLIENT_LIST', 
-          payload: user.id
+          type: 'FETCH_CLIENT_LIST'
         });
         dispatch({
           type: 'FETCH_COMMON_NAMES'
@@ -46,6 +44,7 @@ function showDescription (){
                                     {/* BIRD COMMON NAME */}
                                     <div className="birdCommonNameTitle"> 
                                     <h2> {bird.Common_name} </h2>
+                                    <LifeListButton bird= {bird} key={index}/>
                                     </div>        
                                     {/* DESCRIPTION CONTENT FOR BIRD */}
                                     <div className="containerForBirdDescription" > 
