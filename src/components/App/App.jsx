@@ -31,11 +31,14 @@ import CommonNameQuery from '../AddBirdForm/CommonNameQuery.jsx';
 import ListIdentifier from '../AddBirdForm/ListIdentifier';
 import DreamList from '../DreamList/DreamList';
 import Summary from '../AddBirdForm/Summary.jsx';
+import DreamListDetail from '../ListDetail/DreamListDetail.jsx'
+import LifeListDetail from '../ListDetail/LifeListDetail.jsx'
+
 function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
-
+  const selectedBird = 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
@@ -210,6 +213,18 @@ function App() {
             }
           </Route>
 
+          <ProtectedRoute
+            exact
+            path="/dream/detail"
+          >    
+            <DreamListDetail/>
+          </ProtectedRoute>
+          <ProtectedRoute
+            exact
+            path="/life/detail/:id"
+          >    
+            <LifeListDetail/>
+          </ProtectedRoute>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>

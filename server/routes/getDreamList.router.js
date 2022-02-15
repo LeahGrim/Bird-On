@@ -16,7 +16,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                     "bird_id",
                     "location_spotted", 
                     "date_spotted", 
-                    "image_path"
+                    "image_path", 
+                    "client_bird_list".id
                     FROM birds 
                     JOIN client_bird_list ON bird_id= birds.id
                     JOIN "user" ON user_id = "user".id 

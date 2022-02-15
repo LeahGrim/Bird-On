@@ -11,7 +11,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                         "Order", "Family_name",
                         "Scientific_name", "description",
                         "location_spotted", "date_spotted", 
-                        "image_path", "bird_id"
+                        "image_path", "bird_id", 
+                        "client_bird_list".id
                     FROM birds 
                     JOIN client_bird_list ON bird_id= birds.id
                     WHERE user_id = $1 AND client_bird_list."date_spotted" is NOT NULL; 
@@ -45,4 +46,30 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
                 })
   });
 
+  router.put('/:id', (req, res) => {
+    let queryText = `
+      UPDATE "client_bird_list"
+      SET "description"=$1, "location_spotted"=$2,
+          "date_spotted"=$3, "image_path" =$4 
+      WHERE "bird_id"=$5 AND user_id=$6 
+    `
+    let queryParam = [
+      req.body.description,
+      req.body.location_spotted,
+      req.body.date_spotted,
+      req.body.image_path,
+      req.body.bird_id,
+      req.user.id
+    ]
+  
+    pool.query(queryText, queryParam)
+    .then(result => {
+      res.sendStatus(201);
+    })
+    .catch(err => {
+      console.error('ERROR in put request on getList router,', err);
+      res.sendStatus(500);
+  })
+  });
+  
 module.exports = router;

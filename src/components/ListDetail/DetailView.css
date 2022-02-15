@@ -1,0 +1,15 @@
+.editInfo{
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+}
+.submitChangeBtn{
+   display: flex;
+   justify-content: center;
+   margin: auto;
+   margin-top: 10px;
+   width: 250px
+}

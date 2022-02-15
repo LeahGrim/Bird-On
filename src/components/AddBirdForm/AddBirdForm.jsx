@@ -61,12 +61,6 @@ console.log('bird to add ', birdToAdd)
 // requires the client to enter necessary input 
 function addBirdToList(event){
   event.preventDefault();
-        // if (birdToAdd.description === ''){
-        //   alert(`You Must Enter A Description! (no shortcuts when it comes to describing an encounter in bird world!)`) }
-        // else {
-        //   if (birdToAdd.image_path === ''){
-        //   alert ('You Must Select Photo');
-        // } else {
         dispatch({
             type: 'ADD_BIRD_TO_CLIENT_LIST',
             payload: birdToAdd
@@ -122,7 +116,7 @@ function addBirdToList(event){
             </div>
           
           <div className= "InputAndBtn">
-          <label> Enter The Date Spotted Here <br/> (For DreamList, Enter Today's Date)
+          <label> Enter The Date Spotted Here 
           <input
             required
             type="date"

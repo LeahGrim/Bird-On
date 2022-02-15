@@ -3,21 +3,38 @@ import "./DreamList.css"
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import DreamDeleteButton from "../DeleteButton/DreamDeleteButton.jsx";
+import { useHistory } from 'react-router-dom';
 
 function DreamList (){
     const list = useSelector(store => store.dreamListReducer);
     console.log('list is', list);
   //setup dispatch
   const dispatch = useDispatch();
+  //setup history to navigate user
+  const history = useHistory();
 
 function showDescription (){
     console.log('we are in show description')
 }
+// on page load a GET request is called to retrieve list of dreamList birds
     useEffect(()=> {
         dispatch({
             type: 'FETCH_DREAM_LIST'
           });
       }, [])
+function moveToLifeList(){
+    console.log('we are here in the life list button')
+}
+//client selects div and sends "bird" to handle Selected Bird
+function handleSelectedBird(bird){
+    //declare dispatch to send selected bird to selectedBird reducer
+    dispatch({
+        type: 'SET_SELECTED_DREAM_BIRD', 
+        payload: bird
+    })
+    //once the info is sent to reducer, send client to /dream/details page
+    history.push('/dream/detail')
+}
 
     return (
         <>
@@ -25,18 +42,20 @@ function showDescription (){
         <h1> Birds Engrained In Your Dreams</h1>
         </div>
         <div className= "filter">
-            <input placeholder="Filter by Order"> 
+            {/* <input placeholder="Filter by Order"> 
             </input>
             <input placeholder="Filter by Family"> 
             </input>
             <input placeholder="Filter by Year"> 
-            </input>
+            </input> */}
             <h3> Count: </h3>
         </div>
         <div className="lifeListContainer"> 
         {list && 
             <div className= "lifeListDiv">
                 {list.map((bird, index) => (
+                    // on click of the entire image div, the selected bird will be sent to 
+                    // selectedBird reducer via dispatch, and recalled at the DreamListDetail.jsx component
                     <div className="birdImage" key= {index}>   
                                     {/* IMAGE OF BIRD */}
                                     <img 
@@ -44,22 +63,24 @@ function showDescription (){
                                         src= {bird.image_path}
                                         width= {350}
                                         height={300}
-                                        onClick= { showDescription }
+                                        onClick= {() => handleSelectedBird(bird)}
                                     />
                                     {/* BIRD COMMON NAME */}
                                     <div className="birdCommonNameTitle"> 
                                     <h2> {bird.Common_name} </h2>
                                     <DreamDeleteButton bird= {bird} key={index}/>
-                                    <button> Spotted! </button>
+                                    <button onClick={moveToLifeList}> Spotted! </button>
                                     </div>        
                                     {/* DESCRIPTION CONTENT FOR BIRD */}
-                                    <div className="containerForBirdDescription" > 
+                                 
+                                 {/* have quick pop up with this information */}
+                                    {/* <div className="containerForBirdDescription" > 
                                         <h3> Order: {bird.Order} </h3>
                                         <h3> Family: {bird.Family_name} </h3> 
                                         <h3> Species: {bird.Scientific_name} </h3>
                                         <h3> What Was The Bird Doing? (your notes): {bird.description}</h3>
                                       
-                                    </div>
+                                    </div> */}
                     </div>
                 ))}
             </div>

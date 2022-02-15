@@ -1,26 +1,23 @@
 import "./LifeList.css";
-import LifeListDescription from "./LifeListDescription.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
-import LifeListButton from "../DeleteButton/LifeListButton.jsx";
+import { useHistory, useParams } from 'react-router-dom';
 import DescriptionSection from "./DescriptionSection.jsx"
+
 function LifeList (){
     //history of birds logged by the user as sighted birds
     //stored in the clientListReducer
     //data "got" from fetchClientListSaga
     const lifeList = useSelector(store => store.clientList);
-    const user= useSelector(store => store.user);
-    //setup dispatch
+    const user = useSelector(store=> store.user)
+  //Hooks
   const dispatch = useDispatch();
-  //GOAL::   
-  //defined a random variable (swap) to a true/false value so onClick of the div, 
-  //the status of swap will switch between true and false 
-  //when swap is true picture shows
-  const[swap, setSwap] = useState(true);
+  const history = useHistory();
+  const params = useParams(); 
+  
 
-function showDescription (){
-    setSwap(!swap);
-}
+//on page load, client list is generated from getList Saga
+//common names are also generated for autocomplete 
     useEffect(()=> {
         dispatch({
           type: 'FETCH_CLIENT_LIST'
@@ -30,32 +27,50 @@ function showDescription (){
         });
       }, [])
 
+
+ //client selects div and sends "bird" to handle Selected Bird
+function handleSelectedBird(bird){
+  //declare dispatch to send selected bird to selectedBird reducer
+  dispatch({
+      type: 'SET_DETAIL_BIRD', 
+      payload: bird, params
+  })
+  //once the info is sent to reducer, send client to /details page
+  history.push(`/life/detail/${bird.id}`)
+}
+
     return (
         <>
         <div className= "LifeListHeader">
-        <h1> Life List </h1>
+        <h1> Life List </h1> 
         </div>
+{/* DISPLAY TOTAL COUNT */}
+ {/* <h2> Total Count: </h2> */}
+        <div className= "lifeListFilter"> 
+           <input placeholder="Filter by Order"> 
+            </input>
+            <input placeholder="Filter by Family"> 
+            </input>
+            <input placeholder="Filter by Year"> 
+            </input>
+          </div>
         <div className="lifeListContainer"> 
         {lifeList && 
             <div className= "lifeListDiv">
                 {lifeList.map((bird, index) => (
                     <div className="birdImage" key= {index}>   
                                     {/* IMAGE OF BIRD */}
-                               
                                     <img 
                                         src= {bird.image_path}
                                         width= {350}
                                         height={300}
-                                        onClick= { showDescription }
+                                        onClick= {() => handleSelectedBird(bird) }
                                     />
                                     
                                     {/* BIRD COMMON NAME */}
                                     <h2> {bird.Common_name} </h2>
-                                    <LifeListButton bird= {bird} key={index}/>
                                     <DescriptionSection bird= {bird} key={index} /> 
-                                    <div className="containerForBirdDescription" key={index} >
-                                      
-                                    </div>
+                                    
                     </div>
             
                ))} 

@@ -5,9 +5,9 @@ const router = require ('./routes/image.router');
 const birdDatabaseRouter = require('./routes/birddatabase.router');
 const clientListAddRouter = require('./routes/clientListAdd.router');
 const getListRouter = require('./routes/getList.router');
-const commonNamesRouter = require('./routes/commonName.router')
-const getDreamListRouter = require('./routes/getDreamList.router')
-
+const commonNamesRouter = require('./routes/commonName.router');
+const getDreamListRouter = require('./routes/getDreamList.router');
+const getBird = require('./routes/getSelectedBird.router');
 
 const app = express();
 
@@ -38,8 +38,10 @@ app.use('/search/photos', router);
 app.use('/birds', birdDatabaseRouter);
 //POST request to allow clients to add birds
 app.use('/client/birds', clientListAddRouter);
-//GET request to retrieve life list
+//GET, DELETE, & PUT request to retrieve life list
 app.use('/client/life/list', getListRouter);
+//GET request for specific bird
+app.use('/client/list/bird', getBird)
 //GET request to retrieve dream list
 app.use('/client/dream/list', getDreamListRouter);
 app.use('/birds/common', commonNamesRouter)
