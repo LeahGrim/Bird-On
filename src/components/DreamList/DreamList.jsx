@@ -1,4 +1,4 @@
-import "../SightedList/SightedList.css";
+import "../LifeList/LifeList.css";
 import "./DreamList.css"
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";

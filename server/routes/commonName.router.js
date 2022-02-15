@@ -4,7 +4,8 @@ const axios = require('axios');
 const pool = require('../modules/pool')
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-
+//GET router that saves "Common_name" on "birds" as "label" and "birds".id as "id"
+// for material UI autocomplete 
 router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = 
                         `SELECT 

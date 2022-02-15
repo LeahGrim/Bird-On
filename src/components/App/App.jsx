@@ -20,7 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AddBirdForm from '../AddBirdForm/AddBirdForm';
-import SightedList from '../SightedList/SightedList';
+import LifeList from '../LifeList/LifeList';
 import './App.css';
 import DateForm from '../AddBirdForm/DateForm.jsx';
 import DescriptionForm from '../AddBirdForm/DescriptionForm.jsx';
@@ -192,7 +192,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <SightedList />
+              <LifeList />
               :
               // Otherwise, show the Landing page
               <Redirect to="/user" />

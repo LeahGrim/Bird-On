@@ -4,6 +4,7 @@ const axios = require('axios');
 const pool = require('../modules/pool')
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
+//renders dreamList to the dreamList reducer via fetchDreamListSaga
 router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = 
                 `SELECT 
@@ -16,7 +17,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                     "location_spotted", 
                     "date_spotted", 
                     "image_path"
-                    
                     FROM birds 
                     JOIN client_bird_list ON bird_id= birds.id
                     JOIN "user" ON user_id = "user".id 
@@ -32,6 +32,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+//deletes item from dreamList reducer 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     console.log('dream list id is', req.params.id);
   

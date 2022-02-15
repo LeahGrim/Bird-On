@@ -6,3 +6,12 @@
     background-position: center;
     background-size: inherit;
     }
+
+.containerForBirdDescription{
+    /* add padding */
+   margin-bottom: 50px;
+}
+
+.birdImage{
+    margin-bottom: 100px;
+}

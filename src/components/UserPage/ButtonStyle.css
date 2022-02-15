@@ -1,15 +1,16 @@
 .FormBtnTitle{
     text-align: center;
-    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    line-height: 1;
+    background: red;
  
 }
 .ToFormBtn{
+    background: rgb(156, 173, 180);
     display: flex;
-    margin: auto;
-    width: 200px;
-    justify-content: center
+    margin: 1px;
+    justify-content: center;
+    border: 2px solid black; 
+    width: 100%
 ;}

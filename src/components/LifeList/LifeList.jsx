@@ -1,18 +1,25 @@
-import "./SightedList.css";
+import "./LifeList.css";
 import LifeListDescription from "./LifeListDescription.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import LifeListButton from "../DeleteButton/LifeListButton.jsx";
-
-function SightedList (){
-    const list = useSelector(store => store.clientList);
+import DescriptionSection from "./DescriptionSection.jsx"
+function LifeList (){
+    //history of birds logged by the user as sighted birds
+    //stored in the clientListReducer
+    //data "got" from fetchClientListSaga
+    const lifeList = useSelector(store => store.clientList);
     const user= useSelector(store => store.user);
-console.log('list is', list)
     //setup dispatch
   const dispatch = useDispatch();
+  //GOAL::   
+  //defined a random variable (swap) to a true/false value so onClick of the div, 
+  //the status of swap will switch between true and false 
+  //when swap is true picture shows
+  const[swap, setSwap] = useState(true);
 
 function showDescription (){
-    console.log('we are in show description')
+    setSwap(!swap);
 }
     useEffect(()=> {
         dispatch({
@@ -29,34 +36,29 @@ function showDescription (){
         <h1> Life List </h1>
         </div>
         <div className="lifeListContainer"> 
-        {list && 
+        {lifeList && 
             <div className= "lifeListDiv">
-                {list.map((bird, index) => (
+                {lifeList.map((bird, index) => (
                     <div className="birdImage" key= {index}>   
                                     {/* IMAGE OF BIRD */}
+                               
                                     <img 
-                                        
                                         src= {bird.image_path}
                                         width= {350}
                                         height={300}
                                         onClick= { showDescription }
                                     />
+                                    
                                     {/* BIRD COMMON NAME */}
-                                    <div className="birdCommonNameTitle"> 
                                     <h2> {bird.Common_name} </h2>
                                     <LifeListButton bird= {bird} key={index}/>
-                                    </div>        
-                                    {/* DESCRIPTION CONTENT FOR BIRD */}
-                                    <div className="containerForBirdDescription" > 
-                                        <h3> Order: {bird.Order} </h3>
-                                        <h3> Family: {bird.Family_name}</h3>
-                                        <h3> Scientific Name: {bird.Scientific_Name} </h3>
-                                        <h3> Sighting Date: {bird.date_spotted} </h3>
-                                        <h3> Bird Notes: {bird.description}</h3>
-                                        <h3> Location Spotted: {bird.location_spotted} </h3>
+                                    <DescriptionSection bird= {bird} key={index} /> 
+                                    <div className="containerForBirdDescription" key={index} >
+                                      
                                     </div>
                     </div>
-                ))}
+            
+               ))} 
             </div>
             }
         </div>
@@ -64,4 +66,4 @@ function showDescription (){
     )
 }
 
-export default SightedList; 
+export default LifeList; 

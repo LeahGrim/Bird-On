@@ -17,7 +17,7 @@ function LoginPage() {
             history.push('/registration');
           }}
         >
-          Not a Registered Birder? Sign up Here
+         <h2> Sign up </h2>
         </button>
       </center>
     </div>

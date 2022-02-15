@@ -14,7 +14,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
   console.log('this is req.user', req.user);
 });
-//console.log('this is req.user', req.user);
 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
