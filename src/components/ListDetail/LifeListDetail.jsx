@@ -81,7 +81,6 @@ function LifeListDetail(){
                 {editable === false ?
            <div>
            <h3> Official Timestamp of Sighting: {selectedBird.date_spotted}</h3> 
-            <button> edit </button> 
             </div>
             :
                     <div className= "editInfo"> 

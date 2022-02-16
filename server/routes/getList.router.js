@@ -51,7 +51,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       UPDATE "client_bird_list"
       SET "description"=$1, "location_spotted"=$2,
           "date_spotted"=$3, "image_path" =$4 
-      WHERE "bird_id"=$5 AND user_id=$6 
+      WHERE "bird_id"=$5 AND user_id=$6;
+
     `
     let queryParam = [
       req.body.description,

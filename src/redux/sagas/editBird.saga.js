@@ -17,12 +17,8 @@ function* editSelectedBird(action){
 }
 
 function* fetchClientBird(action){
-    let response= yield axios.get(`/client/list/bird/${action.payload.id}`);
+    yield axios.get(`/client/list/bird/${action.payload.id}`);
 
-    yield put({
-        type: 'SET_DETAIL_BIRD', 
-        payload: response.data
-    }) 
 }
 
 

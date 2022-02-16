@@ -43,7 +43,7 @@ function Nav() {
         )}
 
         <Link className="navLink" to="/about">
-          About
+        <h2> About </h2>
         </Link>
       </div>
     </div>

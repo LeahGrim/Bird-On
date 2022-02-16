@@ -3,8 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/altocumulus.jpg/altocumulus.jpg/metofficegovuk%3AheroXLarge");
-}
+
+    border: 2px solid black;
+    background-image: url('https://www.tomorrow.io/weather/blog/wp-content/uploads/2021/07/Clouds.jpeg');
+    background-position: center;
+    background-size: 1000px 200px;
+    color: white}
 
 .nav a {
   text-decoration: none;
@@ -15,6 +19,8 @@
   font-weight: 700;
   padding-left: 10px;
   margin: 0;
+  line-height: 2em;
+  width: 200px
   
 }
 
@@ -24,7 +30,7 @@
   text-align: center;
   padding: 24px 10px;
 
-  font-size: 10px;
+  font-size: 15px;
   /* these last two make the logout button in
   the nav bar look like another link */
   border: 2px solid black;
@@ -49,3 +55,4 @@
 .navLink:hover {
   background-color: #44aece;
 }
+
