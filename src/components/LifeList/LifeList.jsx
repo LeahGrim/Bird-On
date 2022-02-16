@@ -86,7 +86,7 @@ function handleSelectedBird(bird){
                                       }
                             {editable ===false ?      
         <button onClick={handleEditable}>  <h4> Taxonomy Toggle </h4></button> :
-        <button onClick={handleEditable}> <h4> Taxonomy Toggle </h4></button>
+        <button onClick={handleEditable}> <h4> Taxonomy Toggßle </h4></button>
                             } 
                     </div>
             

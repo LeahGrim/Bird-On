@@ -2,6 +2,7 @@ import "./DetailView.css";
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 function DreamListDetail(){
     const selectedBird = useSelector((store) => store.setSelectedBird) 
@@ -121,9 +122,13 @@ function DreamListDetail(){
                 }
         
         {editable ===false ?
-        <button onClick={handleEditable}> Mark As Spotted! </button> :
+        <div className="markAsSpotted"> <h4> Mark as Spotted </h4>
+         <RemoveRedEyeIcon onClick={handleEditable}>  </RemoveRedEyeIcon> 
+         </div> :
         <button onClick={handleEditable}> Cancel  </button> 
+        
         }
+        
         </div>
         </>
     )

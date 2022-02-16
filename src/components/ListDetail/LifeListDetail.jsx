@@ -70,7 +70,7 @@ function LifeListDetail(){
             <h3> Family: {selectedBird.Family_name} </h3> 
             <h3> Species: {selectedBird.Scientific_name} </h3>
         </div>
-        </div>
+      
         {/* ternary statement that when editable is false, show the client bird info
                 when editable is true, show the input fields for editing purposes 
         */}
@@ -129,12 +129,13 @@ function LifeListDetail(){
                                     }}
                     />
                 </div>
+              
                    <button className="submitChangeBtn" onClick={editBirdDetail}>
                        Submit Changes 
                     </button>  
                     </div>
                 }
-        
+          </div>
         {editable ===false ?
         <button onClick={handleEditable}> Edit Details </button> :
         <button onClick={handleEditable}> Cancel Edits </button> 
