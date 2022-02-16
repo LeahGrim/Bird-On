@@ -59,12 +59,16 @@ function handleSelectedBird(bird){
             <input placeholder="Filter by Year"> 
             </input>
           </div>
+       {/* list listcontainer becomes grid container */}
         <div className="lifeListContainer"> 
         {lifeList && 
+        // life list div becomes grid container
             <div className= "lifeListDiv">
                 {lifeList.map((bird, index) => (
-                    <div className="birdImage" key= {index}>   
+                  //  grid item  
+                   <div className="birdImage" key= {index}>   
                                     {/* IMAGE OF BIRD */}
+                                    {/* card media  */}
                                     <img 
                                         src= {bird.image_path}
                                         width= {350}

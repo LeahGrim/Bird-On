@@ -8,11 +8,7 @@ function* editSelectedBird(action){
     console.log('in editSelectedBird');
     yield axios.put(`/client/life/list/${action.payload.id}`, action.payload);
     console.log('action.payload.id', action.payload.id);
-    //refresh client bird list 
-//     // yield put({
-//     //     type: 'CLIENT_LIST_REDUCER',
-//     //     payload: response.data
-//     // })
+
 }
 
 function* fetchClientBird(action){

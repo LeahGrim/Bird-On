@@ -22,9 +22,10 @@
     border: 3px solid black;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: auto;
+    border-spacing: 1px;
+    
+    
+    
    
    
 
