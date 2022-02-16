@@ -12,20 +12,21 @@ function DreamList (){
    const dispatch = useDispatch();
    const history = useHistory();
    const params = useParams(); 
-   
+  
+   //establish editable toggle
+   const [editable, setEditable] = useState(false);
+ 
+   function handleEditable(){
+     setEditable(!editable);
+ }
 
-function showDescription (){
-    console.log('we are in show description')
-}
 // on page load a GET request is called to retrieve list of dreamList birds
     useEffect(()=> {
         dispatch({
             type: 'FETCH_DREAM_LIST'
           });
       }, [])
-function moveToLifeList(){
-    console.log('we are here in the life list button')
-}
+
 //client selects div and sends "bird" to handle Selected Bird
 function handleSelectedBird(bird){
     //declare dispatch to send selected bird to selectedBird reducer
@@ -62,26 +63,31 @@ function handleSelectedBird(bird){
                                     <img 
                                         
                                         src= {bird.image_path}
-                                        width= {350}
-                                        height={300}
+                                        width= {400}
+                                        height={350}
                                         onClick= {() => handleSelectedBird(bird)}
                                     />
                                     {/* BIRD COMMON NAME */}
-                                    <div className="birdCommonNameTitle"> 
-                                    <h2> {bird.Common_name} </h2>
-                                    <DreamDeleteButton bird= {bird} key={index}/>
-                                    <button onClick={moveToLifeList}> Spotted! </button>
-                                    </div>        
-                                    {/* DESCRIPTION CONTENT FOR BIRD */}
+                                     
                                  
-                                 {/* have quick pop up with this information */}
-                                    {/* <div className="containerForBirdDescription" > 
-                                        <h3> Order: {bird.Order} </h3>
-                                        <h3> Family: {bird.Family_name} </h3> 
-                                        <h3> Species: {bird.Scientific_name} </h3>
-                                        <h3> What Was The Bird Doing? (your notes): {bird.description}</h3>
-                                      
-                                    </div> */}
+                                       
+                                    {editable === false ?
+                                    <h2> {bird.Common_name} </h2> :
+                                    <div>
+                                    <h4> {bird.Common_name}</h4>
+                                    <h4> Species Name: {bird.Scientific_name} </h4>
+                                    <h4> Family Name: {bird.Family_name} </h4>
+                                    <h4> Order: {bird.Order} </h4>
+                                    </div>
+                                      }
+                             <div className="birdNameTitle">         
+                            <DreamDeleteButton bird= {bird} key={index}/>
+                            {editable ===false ?      
+                            <button onClick={handleEditable}>  <h4> Taxonomy Toggle </h4></button> :
+                            <button onClick={handleEditable}> <h4> Taxonomy Toggle </h4></button>
+                            }      
+                             </div>
+                                    
                     </div>
                 ))}
             </div>

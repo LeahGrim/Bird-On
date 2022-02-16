@@ -1,11 +1,25 @@
 .lifeListDiv{
     display: flex;
     flex-direction: column;
-    flex-wrap: column-wrap;
+    flex-wrap: row-wrap;
     margin: auto;
     align-items: center;
 
 }
 
+.birdImage{
+    padding: 10px;
+    background: rgb(127, 149, 163);
+    border: 2px rgb(254, 254, 254) solid
+}
 
-
+.birdNameTitle{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    background: rgb(103, 117, 138);
+    width: 400px;
+    line-height: 2em;
+}

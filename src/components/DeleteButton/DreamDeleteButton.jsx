@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function DreamDeleteButton({bird}){
@@ -21,7 +22,8 @@ function DreamDeleteButton({bird}){
   
     return(
         <>
-        <button onClick={() => DeleteBird(bird.bird_id)}> Delete</button>
+        
+            <DeleteIcon fontSize= "large" onClick={() => DeleteBird(bird.bird_id)}> </DeleteIcon>
         </>
     )
 }

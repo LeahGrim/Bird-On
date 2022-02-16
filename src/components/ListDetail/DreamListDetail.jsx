@@ -119,8 +119,8 @@ function DreamListDetail(){
                 }
         
         {editable ===false ?
-        <button onClick={handleEditable}> Edit Details </button> :
-        <button onClick={handleEditable}> Cancel Edits </button> 
+        <button onClick={handleEditable}> Mark As Spotted! </button> :
+        <button onClick={handleEditable}> Cancel  </button> 
         }
 
         </>

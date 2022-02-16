@@ -74,14 +74,15 @@ function handleSelectedBird(bird){
                                     {editable === false ?
                                     <h2> {bird.Common_name} </h2> :
                                     <div>
-                                    <h4> {bird.Scientific_name} </h4>
-                                    <h4> {bird.Family_name} </h4>
-                                    <h4> {bird.Order} </h4>
+                                    <h4> {bird.Common_name}</h4>
+                                    <h4> Species Name: {bird.Scientific_name} </h4>
+                                    <h4> Family Name: {bird.Family_name} </h4>
+                                    <h4> Order: {bird.Order} </h4>
                                     </div>
                                       }
                             {editable ===false ?      
-                            <button onClick={handleEditable}> Quick Taxonomy </button> :
-                            <button onClick={handleEditable}> Common Name</button>
+        <button onClick={handleEditable}>  <h4> Taxonomy Toggle </h4></button> :
+        <button onClick={handleEditable}> <h4> Taxonomy Toggle </h4></button>
                             } 
                     </div>
             
