@@ -15,6 +15,7 @@
 .lifeListDiv{
     display: flex;
    border: 2px solid black;
+   padding: 20px;
 
 }
 .birdImage{
@@ -24,6 +25,12 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: auto;
+   
+   
 
     
+}
+.lifeListContainer{
+    background-image: url('https://images.pexels.com/videos/3129769/free-video-3129769.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-size: contain
 }
