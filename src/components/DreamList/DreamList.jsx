@@ -29,12 +29,7 @@ function DreamList (){
 
 //client selects div and sends "bird" to handle Selected Bird
 function handleSelectedBird(bird){
-    //declare dispatch to send selected bird to selectedBird reducer
-    dispatch({
-        type: 'SET_DETAIL_BIRD', 
-        payload: bird, params
-    })
-    //once the info is sent to reducer, send client to /dream/details page
+    
     history.push(`/dream/detail/${bird.id}`)
 }
 
@@ -75,9 +70,9 @@ function handleSelectedBird(bird){
                                     <h2> {bird.Common_name} </h2> :
                                     <div>
                                     <h4> {bird.Common_name}</h4>
-                                    <h4> Species Name: {bird.Scientific_name} </h4>
-                                    <h4> Family Name: {bird.Family_name} </h4>
-                                    <h4> Order: {bird.Order} </h4>
+                                    <h4> Species Name:</h4> {bird.Scientific_name} 
+                                    <h4> Family Name:</h4> {bird.Family_name} 
+                                    <h4> Order:</h4> {bird.Order} 
                                     </div>
                                       }
                              <div className="birdNameTitle">         

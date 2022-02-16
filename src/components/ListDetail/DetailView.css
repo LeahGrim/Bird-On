@@ -13,3 +13,24 @@
    margin-top: 10px;
    width: 250px
 }
+.commonNameTitle{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border: 2px black solid;
+   margin: 15px;
+
+}
+.detailBirdContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* detail page of bird and img and description  */
+.detailPageTitle{
+    display: flex;
+    justify-content: space-between;
+    
+
+}

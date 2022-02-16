@@ -48,6 +48,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   });
 
   router.put('/:id', (req, res) => {
+    console.log('query params are,', req.query);
+    console.log('req.body', req.body);
     let queryText = `
       UPDATE "client_bird_list"
       SET "description"=$1, "location_spotted"=$2,

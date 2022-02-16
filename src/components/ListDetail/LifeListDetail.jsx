@@ -6,12 +6,10 @@ import { useHistory, useParams } from 'react-router-dom';
 function LifeListDetail(){
     const selectedBird = useSelector((store) => store.setSelectedBird) 
     
-    //establish history to later send the user back to the dreamList view
-    const history = useHistory();
-    //setup dispatch
-    const dispatch = useDispatch();
-    //setup params so that url contains ID
-    const params = useParams(); 
+       //Hooks
+       const dispatch = useDispatch();
+       const params = useParams(); 
+       const history = useHistory(); 
 
     //define local state variables for input toggle 
      const [editable, setEditable] = useState(false);
@@ -44,29 +42,35 @@ function LifeListDetail(){
         setEditable(!editable);
     }
 
-    function editBirdDetail(evt){
-        evt.preventDefault();
+    function editBirdDetail(){
+       
         dispatch ({
             type: 'EDIT_LIFE_BIRD', 
-            payload: params.id, selectedBird
+            payload: selectedBird
         })
         history.push('/lifeList')
 
     }
     return(
         <>
-        <div className= "detailPageTitle"> 
+        <div className= "detailBirdContainer">
+        <div className= "detailPageTitle">
+        <div className="commonNameTitle"> 
         <h2> {selectedBird.Common_name}: </h2>
-        </div>
+   
         <img 
             src= {selectedBird.image_path}
             width= {350}
             height={300}
         />
+        </div>
+        
          <div className="DetailPageDescription" > 
             <h3> Order: {selectedBird.Order} </h3>
             <h3> Family: {selectedBird.Family_name} </h3> 
             <h3> Species: {selectedBird.Scientific_name} </h3>
+        </div>
+        </div>
         {/* ternary statement that when editable is false, show the client bird info
                 when editable is true, show the input fields for editing purposes 
         */}
@@ -128,13 +132,15 @@ function LifeListDetail(){
                    <button className="submitChangeBtn" onClick={editBirdDetail}>
                        Submit Changes 
                     </button>  
-                </div>
+                    </div>
                 }
-        </div>
+        
         {editable ===false ?
         <button onClick={handleEditable}> Edit Details </button> :
         <button onClick={handleEditable}> Cancel Edits </button> 
         }
+    
+       </div>
         </>
     )
 }

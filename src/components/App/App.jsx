@@ -188,37 +188,17 @@ function App() {
             }
           </Route>
         
-          <Route
+          <ProtectedRoute
             exact
             path="/lifeList"
           >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
               <LifeList />
-              :
-              // Otherwise, show the Landing page
-              <Redirect to="/user" />
-            }
-          </Route>
-          <Route exact path="/dreamList"
-          >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <DreamList />
-              :
-              // Otherwise, show the Landing page
-              <Redirect to="/user" />
-            }
-          </Route>
-
-          <ProtectedRoute
-            exact
-            path="/dream/detail"
-          >    
-            <DreamListDetail/>
           </ProtectedRoute>
+          <ProtectedRoute exact path="/dreamList">
+              <DreamList />
+        
+          </ProtectedRoute>
+
           <ProtectedRoute
             exact
             path="/life/detail/:id"

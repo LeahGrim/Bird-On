@@ -31,36 +31,38 @@ function DreamListDetail(){
         setEditable(!editable);
     }
     
-    function editBirdDetail(event){
-       event.preventDefault();
+    function editBirdDetail(){
+       console.log('in editBirdDetail');
         dispatch ({
             type: 'EDIT_LIFE_BIRD', 
-            payload: params.id, selectedBird
+            payload: selectedBird
         })
         history.push('/dreamList')
 
     }
     return(
         <>
+        <div className= "detailBirdContainer">
         <div className= "detailPageTitle"> 
+        <div className="commonNameTitle"> 
         <h2> {selectedBird.Common_name}: </h2>
-        </div>
+        
         <img 
             src= {selectedBird.image_path}
             width= {350}
             height={300}
         />
+        </div>
          <div className="DetailPageDescription" > 
-            <h3> Order: {selectedBird.Order} </h3>
-            <h3> Family: {selectedBird.Family_name} </h3> 
-            <h3> Species: {selectedBird.Scientific_name} </h3>
-            <h3> Notes on Bird: {selectedBird.description}</h3>
+            <h3> Order: </h3>{selectedBird.Order} 
+            <h3> Family:</h3>  {selectedBird.Family_name}  
+            <h3> Species: </h3>{selectedBird.Scientific_name} 
+            <h3> Notes on Bird: </h3> {selectedBird.description}
             
         </div>
+        </div>
         {editable === false ?
-           <div>
-           <h3> Official Timestamp of Sighting: {selectedBird.date_spotted}</h3> 
-            </div>
+           <div></div>
             :
                     <div className= "editInfo"> 
                     <h4> Edit Date Spotted Here</h4>
@@ -80,7 +82,7 @@ function DreamListDetail(){
                     </div>
                 }
                 {editable === false ?
-            <h3> Location of Sighting: {selectedBird.location_spotted} </h3> : 
+                    <div></div>: 
                     <div className ="editInfo">
                         <h4>Edit City/State <br/> City/Country of Sighting </h4>
                         <input
@@ -97,7 +99,7 @@ function DreamListDetail(){
                     </div>
                 }
                 {editable === false ? 
-            <h3> Notes on Bird: {selectedBird.description}</h3> :
+            <div></div> :
                 <div>
                 <div className ="editInfo">
                     <h4>Edit Notes on Bird Sighting </h4>
@@ -122,7 +124,7 @@ function DreamListDetail(){
         <button onClick={handleEditable}> Mark As Spotted! </button> :
         <button onClick={handleEditable}> Cancel  </button> 
         }
-
+        </div>
         </>
     )
 }

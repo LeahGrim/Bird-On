@@ -5,6 +5,9 @@ const pool = require('../modules/pool')
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('this is req.body', req.body);
+    console.log('this is req.params', req.params);
+    console.log('this is req.query', req.query);
     const queryText = 
                         `SELECT 
                         "Common_name",
