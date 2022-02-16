@@ -9,7 +9,7 @@ import birdId from './birdId.reducer';
 import dreamListReducer from './dreamList.reducer';
 import formReducer from './birdForm.reducer';
 import setSelectedDreamBird from './setSelectedDreamBird.reducer';
-import setSelectedLifeBird from './setSelectedLifeBird.reducer';
+import setSelectedBird from './setSelectedBird.reducer';
 import editReducer from './editPage.reducer'
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -28,7 +28,7 @@ const rootReducer = combineReducers({
   dreamListReducer,
   formReducer,
   setSelectedDreamBird,
-  setSelectedLifeBird,
+  setSelectedBird,
   editReducer
 });
 

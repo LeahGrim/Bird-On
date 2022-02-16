@@ -225,6 +225,12 @@ function App() {
           >    
             <LifeListDetail/>
           </ProtectedRoute>
+          <ProtectedRoute
+            exact
+            path="/dream/detail/:id"
+          >    
+            <DreamListDetail/>
+          </ProtectedRoute>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>

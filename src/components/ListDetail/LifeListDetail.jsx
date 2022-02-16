@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 
 function LifeListDetail(){
-    const selectedBird = useSelector((store) => store.setSelectedLifeBird) 
+    const selectedBird = useSelector((store) => store.setSelectedBird) 
     
     //establish history to later send the user back to the dreamList view
     const history = useHistory();
@@ -14,30 +14,20 @@ function LifeListDetail(){
     const params = useParams(); 
 
     //define local state variables for input toggle 
-    const [editable, setEditable] = useState(false);
-    let [newDateAdded, setNewDateAdded] = useState('');
-    let [newLocation, setNewLocation] = useState('');
-    let [newDescription, setNewDescription] = useState('');
+     const [editable, setEditable] = useState(false);
+//     let [newDateAdded, setNewDateAdded] = useState('');
+//     let [newLocation, setNewLocation] = useState('');
+//     let [newDescription, setNewDescription] = useState('');
    
-    //if statements to handle if the client has no edits for input fields
-   //the information sent in the birdToEdit will equate to the original selectedBird info
-   if( newDateAdded === ''){
-       setNewDateAdded(selectedBird.date_spotted)
-   } 
-   if(newLocation === ''){
-       setNewLocation(selectedBird.location_spotted)
-   }
-   if(newDescription === ''){
-       setNewDescription(selectedBird.description)
-   }
+    
    
-   let birdToEdit={
-            description: newDescription, 
-            location_spotted: newLocation,
-            date_spotted: newDateAdded, 
-            image_path: selectedBird.image_path,
-            bird_id: selectedBird.bird_id
-    }
+//    let birdToEdit={
+//             description: newDescription, 
+//             location_spotted: newLocation,
+//             date_spotted: newDateAdded, 
+//             image_path: selectedBird.image_path,
+//             bird_id: selectedBird.bird_id
+//     }
     //on page load, render new details
   console.log('params.id are', params.id);
     useEffect(()=> {

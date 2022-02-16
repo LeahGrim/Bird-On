@@ -1,4 +1,4 @@
-const setSelectedLifeBird = (state={}, action) => {
+const setSelectedBird = (state={}, action) => {
     switch(action.type) {
         case 'SET_DETAIL_BIRD': 
             return action.payload
@@ -12,4 +12,4 @@ const setSelectedLifeBird = (state={}, action) => {
     }
   }; // End setSelectedLifeBird
 
-  export default setSelectedLifeBird;
+  export default setSelectedBird;

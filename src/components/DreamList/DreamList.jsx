@@ -3,15 +3,16 @@ import "./DreamList.css"
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import DreamDeleteButton from "../DeleteButton/DreamDeleteButton.jsx";
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 function DreamList (){
     const list = useSelector(store => store.dreamListReducer);
-    console.log('list is', list);
-  //setup dispatch
-  const dispatch = useDispatch();
-  //setup history to navigate user
-  const history = useHistory();
+  
+    //Hooks
+   const dispatch = useDispatch();
+   const history = useHistory();
+   const params = useParams(); 
+   
 
 function showDescription (){
     console.log('we are in show description')
@@ -29,11 +30,11 @@ function moveToLifeList(){
 function handleSelectedBird(bird){
     //declare dispatch to send selected bird to selectedBird reducer
     dispatch({
-        type: 'SET_SELECTED_DREAM_BIRD', 
-        payload: bird
+        type: 'SET_DETAIL_BIRD', 
+        payload: bird, params
     })
     //once the info is sent to reducer, send client to /dream/details page
-    history.push('/dream/detail')
+    history.push(`/dream/detail/${bird.id}`)
 }
 
     return (
