@@ -45,7 +45,7 @@ function LifeListDetail(){
           type: 'FETCH_SELECTED_BIRD',
           payload: params.id
         });
-      }, [])
+      }, [params.id]);
 
     //handles the toggle between input and detail view,
     //when editable is false, bird info displays
@@ -54,11 +54,13 @@ function LifeListDetail(){
         setEditable(!editable);
     }
 
-    function editBirdDetail(){
+    function editBirdDetail(evt){
+        evt.preventDefault();
         dispatch ({
             type: 'EDIT_LIFE_BIRD', 
-            payload: params.id, birdToEdit
+            payload: params.id, selectedBird
         })
+        history.push('/lifeList')
 
     }
     return(
@@ -90,9 +92,12 @@ function LifeListDetail(){
                         type="date"
                         name= "spotted"
                         id="dateSpottedText"
-                        value={newDateAdded}
-                        onChange={(e) => {
-                            setNewDateAdded(e.target.value);
+                        value={selectedBird.date_spotted}
+                        onChange={(evt) => {
+                            dispatch({
+                                type: 'UPDATE_DETAIL_BIRD', 
+                                payload: {date_spotted: evt.target.value}
+                            })
                         }}
                     />
                     </div>
@@ -104,8 +109,13 @@ function LifeListDetail(){
                         <input
                             id="descriptionText"
                             placeholder=" Enter (City, State) or (City, Country)"
-                            value={newLocation}
-                            onChange={(e) => { setNewLocation(e.target.value) }}
+                            value={selectedBird.location_spotted}
+                            onChange={(evt) => { 
+                                            dispatch({
+                                                    type: 'UPDATE_DETAIL_BIRD', 
+                                                    payload: {location_spotted: evt.target.value}
+                                                }) 
+                                             }}
                         />
                     </div>
                 }
@@ -117,8 +127,12 @@ function LifeListDetail(){
                     <input 
                             id="descriptionText"
                             placeholder="Description of Sighting"
-                            value={newDescription}
-                            onChange={(e) => { setNewDescription(e.target.value) }}
+                            value={selectedBird.description}
+                            onChange={(evt) => { dispatch({
+                                                 type: 'UPDATE_DETAIL_BIRD', 
+                                                payload: {description: evt.target.value}
+                                             }) 
+                                    }}
                     />
                 </div>
                    <button className="submitChangeBtn" onClick={editBirdDetail}>

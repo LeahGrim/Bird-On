@@ -2,7 +2,6 @@ import "./LifeList.css";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
-import DescriptionSection from "./DescriptionSection.jsx"
 
 function LifeList (){
     //history of birds logged by the user as sighted birds
@@ -10,11 +9,17 @@ function LifeList (){
     //data "got" from fetchClientListSaga
     const lifeList = useSelector(store => store.clientList);
     const user = useSelector(store=> store.user)
-  //Hooks
+  
+    //Hooks
   const dispatch = useDispatch();
   const history = useHistory();
   const params = useParams(); 
   
+  const [editable, setEditable] = useState(false);
+ 
+  function handleEditable(){
+    setEditable(!editable);
+}
 
 //on page load, client list is generated from getList Saga
 //common names are also generated for autocomplete 
@@ -66,16 +71,24 @@ function handleSelectedBird(bird){
                                         height={300}
                                         onClick= {() => handleSelectedBird(bird) }
                                     />
-                                    
-                                    {/* BIRD COMMON NAME */}
-                                    <h2> {bird.Common_name} </h2>
-                                    <DescriptionSection bird= {bird} key={index} /> 
-                                    
+                                    {editable === false ?
+                                    <h2> {bird.Common_name} </h2> :
+                                    <div>
+                                    <h4> {bird.Scientific_name} </h4>
+                                    <h4> {bird.Family_name} </h4>
+                                    <h4> {bird.Order} </h4>
+                                    </div>
+                                      }
+                            {editable ===false ?      
+                            <button onClick={handleEditable}> Quick Taxonomy </button> :
+                            <button onClick={handleEditable}> Common Name</button>
+                            } 
                     </div>
             
                ))} 
             </div>
             }
+            
         </div>
         </>
     )

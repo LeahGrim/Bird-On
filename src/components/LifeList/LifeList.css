@@ -9,9 +9,21 @@
 
 .containerForBirdDescription{
     /* add padding */
-   margin-bottom: 50px;
+   margin-bottom:100px;
 }
 
+.lifeListDiv{
+    display: flex;
+   border: 2px solid black;
+
+}
 .birdImage{
-    margin-bottom: 100px;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+
+    
 }

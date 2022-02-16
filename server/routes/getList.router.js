@@ -10,7 +10,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                         "Common_name",
                         "Order", "Family_name",
                         "Scientific_name", "description",
-                        "location_spotted", "date_spotted", 
+                        "location_spotted", 
+                        TO_CHAR("date_spotted",'YYYY-MM-DD') AS date_spotted, 
                         "image_path", "bird_id", 
                         "client_bird_list".id
                     FROM birds 
@@ -72,5 +73,32 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500);
   })
   });
+
+//endpoint to set selected bird (triggered at editBirdSaga )
+  router.get('/:id', rejectUnauthenticated, (req, res) => {
+    const queryText = 
+                        `SELECT 
+                        "Common_name",
+                        "Order", "Family_name",
+                        "Scientific_name", "description",
+                        "location_spotted", "date_spotted", 
+                        "image_path", "bird_id", 
+                        "client_bird_list".id
+                    FROM birds 
+                    JOIN client_bird_list ON bird_id= birds.id
+                    WHERE user_id = $1 AND client_bird_list.id= $2; 
+                        `
+    const queryParams= [req.user.id, req.params.id];
+   
+    pool.query(queryText, queryParams)
+    .then(dbRes => {
+        res.send(dbRes.rows[0])
+    }).catch(err => {
+        console.log('error on the get list .router', err)
+        res.sendStatus(500);
+    })
+});
+
+
   
 module.exports = router;

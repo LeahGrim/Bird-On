@@ -15,7 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                     "description",
                     "bird_id",
                     "location_spotted", 
-                    "date_spotted", 
+                    TO_CHAR("date_spotted",'YYYY-MM-DD') AS date_spotted, 
                     "image_path", 
                     "client_bird_list".id
                     FROM birds 
