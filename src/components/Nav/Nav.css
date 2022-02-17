@@ -6,7 +6,7 @@
   border: 2px solid black;
   background-image: url('https://www.tomorrow.io/weather/blog/wp-content/uploads/2021/07/Clouds.jpeg');
   background-position: center;
-  background-size: 1000px 200px;
+  background-size: 10000px 200px;
   color: white;
   height: 150px;
 }
@@ -19,11 +19,19 @@
 }
 
 .nav-title {
-  font-size: 24px;
-  padding-left: 50px;
-  margin: 0;
-  width: 200px
+  display: flex;
+  align-items: flex-end;
+ 
+  font-size: 40px;
+  padding-left: 2.5%;
   
+  color: black;
+ 
+  width: 200px;
+  height: 150px;
+  background-image: url('https://www.jrobersonphotography.com/img/s/v-10/p1403122078-3.jpg');
+  background-size: 450px;
+  background-position: center;
 }
 
 .navLink {
@@ -56,7 +64,7 @@
 
 
 .navLink:hover {
-  background-color: #44aece;
+  background-color: #c58787;
 }
 
 .listNav{
