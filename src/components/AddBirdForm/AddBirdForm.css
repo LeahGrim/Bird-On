@@ -16,7 +16,10 @@ input{
     background-color: rgb(191, 182, 184);
   }
   
-
+.selectedImage{
+  border: 2px solid red;
+  
+}
 .ImageBtn{
     margin-left: 10px;
 }

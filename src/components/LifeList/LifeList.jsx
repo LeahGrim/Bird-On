@@ -2,6 +2,7 @@ import "./LifeList.css";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function LifeList (){
     //history of birds logged by the user as sighted birds
@@ -43,7 +44,14 @@ function handleSelectedBird(bird){
   //once the info is sent to reducer, send client to /details page
   history.push(`/life/detail/${bird.id}`)
 }
+//deleteBird function that sends the id of the bird to delete to the DELETE req in getList router
+function deleteBird(id){
+  dispatch({
+      type: 'DELETE_LIFE_BIRD',
+      payload: id
+  })
 
+}
     return (
         <>
         <div className= "LifeListHeader">
@@ -71,31 +79,41 @@ function handleSelectedBird(bird){
                    <div className="birdImage" key= {index}>   
                                     {/* IMAGE OF BIRD */}
                                     {/* card media  */}
+                                    <div className="imgDiv">
                                     <img 
                                         src= {bird.image_path}
                                         width= {350}
                                         height={300}
                                         onClick= {() => handleSelectedBird(bird) }
                                     />
+                                    </div>
                                     {editable === false ?
-                                    <h2> {bird.Common_name} </h2> :
+                                    <h2 className= "commonNameTtl"> {bird.Common_name} </h2> :
                                     <div>
                                     <h4> {bird.Common_name}</h4>
-                                    <h4> Species Name:</h4> {bird.Scientific_name} 
-                                    <h4> Family Name: </h4>{bird.Family_name} 
                                     <h4> Order:</h4>  {bird.Order} 
+                                     <h4> Family Name: </h4>{bird.Family_name} 
+                                    <h4> Species Name:</h4> {bird.Scientific_name} 
+                                   
+                                   
                                     </div>
                                       }
                             {editable ===false ?      
-        <button onClick={handleEditable}>  <h4> Taxonomy Toggle </h4></button> :
-        <button onClick={handleEditable}> <h4> Taxonomy Toggßle </h4></button>
+                            <div className= "toggleDlt"> 
+        <button onClick={handleEditable}>  <h4> Taxonomy Toggle </h4></button> 
+        <DeleteIcon fontSize= "large" onClick={() => deleteBird(bird.bird_id)}> </DeleteIcon>
+
+        </div>
+        :
+        <button onClick={handleEditable}> <h4> Taxonomy Toggle </h4></button>
                             } 
                     </div>
             
                ))} 
             </div>
-            }
             
+            }
+
         </div>
         </>
     )
