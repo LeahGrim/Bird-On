@@ -51,6 +51,8 @@ function handleSelectedBird(bird){
         </div>
 {/* DISPLAY TOTAL COUNT */}
  {/* <h2> Total Count: </h2> */}
+ {/* IN THE input have an onchange that grabs the text from the input and sets that to dispatch reducer 
+ establish a get request that uses a where clause taht when two things are alike  */}
         <div className= "lifeListFilter"> 
            <input placeholder="Filter by Order"> 
             </input>
