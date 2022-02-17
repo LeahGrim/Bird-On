@@ -13,19 +13,7 @@ function LifeListDetail(){
 
     //define local state variables for input toggle 
      const [editable, setEditable] = useState(false);
-//     let [newDateAdded, setNewDateAdded] = useState('');
-//     let [newLocation, setNewLocation] = useState('');
-//     let [newDescription, setNewDescription] = useState('');
-   
-    
-   
-//    let birdToEdit={
-//             description: newDescription, 
-//             location_spotted: newLocation,
-//             date_spotted: newDateAdded, 
-//             image_path: selectedBird.image_path,
-//             bird_id: selectedBird.bird_id
-//     }
+
     //on page load, render new details
   console.log('params.id are', params.id);
     useEffect(()=> {

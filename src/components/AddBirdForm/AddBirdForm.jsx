@@ -19,11 +19,12 @@ function AddBirdForm() {
   let [newDescription, setNewDescription] = useState('');
   let [newLocation, setNewLocation] = useState('');
   let [chosenPicture, setChosenPicture]= useState('');
-  //setup history
+  //Hooks
   const history = useHistory();
-
-  //setup dispatch
   const dispatch = useDispatch();
+
+  //define local state variables for input toggle 
+  const [selectedImage, setSelectedImage] = useState(false);
 
   function addNewImageSearch(event) {
     event !== undefined ? event.preventDefault() : false; // did this in group work
@@ -72,6 +73,8 @@ function addBirdToList(event){
     let imgUrl= `https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`
     console.log('chosen picture is', imgUrl);
     setChosenPicture(imgUrl);
+
+
   
   }
   return (
@@ -174,14 +177,16 @@ function addBirdToList(event){
             {pictureResults && 
           <div className= 'pictureDiv'> 
             {pictureResults.photos.photo.map((img, index) => (
+             
                 <img
                     key= {index}
                     src= {`https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`} 
                     alt= 'cool image'
                     width= {300}
                     height= {350}
-                    onClick= {event => chosenPic(img)} 
+                    onClick= {event => chosenPic(img) } 
                 />
+                
             ))}
            
           </div>

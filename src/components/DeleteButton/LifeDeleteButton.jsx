@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-function DreamDeleteButton({bird}){
+function LifeDeleteButton({bird}){
     const user= useSelector(store => store.user);
     const dispatch = useDispatch();
  
     
-  console.log('birdid is ', bird.bird_id)
+  console.log('birdId is ', bird.bird_id)
     function DeleteBird(id){
             dispatch({
                 type: 'DELETE_LIFE_BIRD',
@@ -26,4 +26,4 @@ function DreamDeleteButton({bird}){
         </>
     )
 }
-export default DreamDeleteButton;
+export default LifeDeleteButton;
