@@ -35,7 +35,7 @@ function UserPage() {
         </div>
        <div className='linkTitle'> 
                 <h2> Dream List Form </h2>
-                    <Link to= '/form'><button className= "ToFormBtn"> 
+                    <Link to= '/form/dream'><button className= "ToFormBtn"> 
                                 <h2>  Dream List Form </h2> 
                                       </button>
                     </Link>

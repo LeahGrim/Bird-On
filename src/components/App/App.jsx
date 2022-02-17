@@ -33,7 +33,7 @@ import DreamList from '../DreamList/DreamList';
 import Summary from '../AddBirdForm/Summary.jsx';
 import DreamListDetail from '../ListDetail/DreamListDetail.jsx'
 import LifeListDetail from '../ListDetail/LifeListDetail.jsx'
-
+import AddDreamBirdForm from '../AddBirdForm/AddDreamBirdForm.jsx'
 function App() {
   const dispatch = useDispatch();
 
@@ -188,6 +188,13 @@ function App() {
             }
           </Route>
         
+          <ProtectedRoute
+            exact
+            path="/form/dream"
+          >
+              <AddDreamBirdForm />
+          </ProtectedRoute>
+          
           <ProtectedRoute
             exact
             path="/lifeList"

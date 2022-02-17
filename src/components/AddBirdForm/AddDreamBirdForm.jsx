@@ -7,7 +7,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { useHistory } from 'react-router-dom';
 
 
-function AddBirdForm() {
+function AddDreamBirdForm() {
   const pictureResults = useSelector(store => store.imageResultList)
   const user= useSelector(store => store.user);
   const birdId = useSelector(store => store.birdId);
@@ -15,9 +15,7 @@ function AddBirdForm() {
   let userId= user.id;
  
   let [newImageSearch, setNewImageSearch] = useState('');
-  let [newDateAdded, setNewDateAdded] = useState('');
   let [newDescription, setNewDescription] = useState('');
-  let [newLocation, setNewLocation] = useState('');
   let [chosenPicture, setChosenPicture]= useState('');
   //setup history
   const history = useHistory();
@@ -50,8 +48,8 @@ let birdToAdd =
   {
     user_id: userId,
     description: newDescription, 
-    location_spotted: newLocation,
-    date_spotted: newDateAdded, 
+    location_spotted: '',
+    date_spotted: '', 
     image_path: chosenPicture,
     bird_id: birdId
     }
@@ -65,7 +63,7 @@ function addBirdToList(event){
             type: 'ADD_BIRD_TO_CLIENT_LIST',
             payload: birdToAdd
         }) 
-        history.push('/lifeList')
+        history.push('/dreamList')
 
 }
   function chosenPic (img)  {
@@ -75,12 +73,9 @@ function addBirdToList(event){
   
   }
   return (
-    <>
-      
       <div className="inputContainer">
-        <form>
         <div className="InputAndBtn">
-          <label> Search For Your Bird by Common Name
+          <label> Search for Your Bird by Common Name
         <Autocomplete
             options= {commonNameList}
             sx={{ width: 350 }}
@@ -93,7 +88,7 @@ function addBirdToList(event){
             
         />
         </label>
-     </div>
+        </div>
 
             <div className="inputAndLabel"> 
            <label> Search for Images of Birds: 
@@ -113,32 +108,16 @@ function addBirdToList(event){
             <button className="ImageBtn" onClick={addNewImageSearch}>
               Find Images
             </button>
-            </div>
-          
-          <div className= "InputAndBtn">
-          <label> Enter The Date Spotted Here 
-          <input
-            required
-            type="date"
-            name= "spotted"
-            id="dateSpottedText"
-            value={newDateAdded}
-            onChange={(e) => {
-              setNewDateAdded(e.target.value);
-            }}
-          />
-          </label>
-          </div>
       
           <div className="InputAndBtn">
-          <label> What Was the Bird Doing?
+          <label> Enter the Details of Your Dreams
           <Box  
                 sx={{ width: 350 }}
             > 
             <TextField
             fullWidth
             id="descriptionText"
-            placeholder="Description of Sighting"
+            placeholder="Description of Dream"
             value={newDescription}
             onChange={(e) => {
               setNewDescription(e.target.value);
@@ -148,29 +127,12 @@ function addBirdToList(event){
           </label>
             </div>
 
-          <div className ="InputAndBtn">
-          <label> Enter the Location of Sighting <br/> City/State or City/Country 
-          <Box  
-            sx={{ width: 350 }}
-          >
-          <TextField
-            fullWidth
-            id="descriptionText"
-            placeholder="(City, State) or (City, Country) Spotted"
-            value={newLocation}
-            onChange={(e) => { setNewLocation(e.target.value) }}
-          />
-           </Box>
-           </label>
-           </div>
-        
-         <br/>
           <button className="formSubmitBtn" onClick={addBirdToList} > Add Bird To List </button>
-        </form>
+       
       </div>
 
       {/* List of Birds */}
-           <div>
+    
             {pictureResults && 
           <div className= 'pictureDiv'> 
             {pictureResults.photos.photo.map((img, index) => (
@@ -183,13 +145,10 @@ function addBirdToList(event){
                     onClick= {event => chosenPic(img)} 
                 />
             ))}
-           
-          </div>
+            </div>
           }
-        </div>
-   
-    </>
+   </div>
   );
 }
 
-export default AddBirdForm;
+export default AddDreamBirdForm;
