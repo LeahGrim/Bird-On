@@ -40,8 +40,16 @@ function UserPage() {
                                       </button>
                     </Link>
         </div>
-     
+        <div className='linkTitle'> 
+                <h2> About Us</h2>
+                <Link to="/about"><button className= "ToFormBtn"> 
+                                <h2>  Info Page </h2> 
+                                      </button>
+
+        </Link>
         </div>
+        </div>
+    
       
       <LogOutButton className="btn" />
       

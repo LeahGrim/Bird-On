@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
-//material UI navigation constants 
 
   return (
     <div className="nav">
@@ -23,33 +22,43 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
-             <h2> Home </h2>
-            </Link>
-
-            <Link className= "navLink" to= "/form">
-            <h2> Add Bird Form </h2>
-            </Link>
-            <Link className= "navLink" to= "/form/dream">
-              Add Dream Bird
-            </Link>
-            <Link className= "navLink" to="/lifeList">
-              <h2> Life List </h2>
-              </Link>
-              <Link className= "navLink" to="/dreamList">
-              <h2> Dream List </h2>
-              </Link>
-
-            <LogOutButton className="navLink" />
+           
+            <div className="dropdown">
+            <button className="dropbtn"> Add A Bird </button>
+            <div className="dropdown-content">
+              <Link to="/form">< a href="#"> Add Bird Sighting </a> </Link>
+              <Link to="/form/dream"> Add Dream Bird </Link>
+            </div>
+          </div>
+              <div className="dropdown">
+            <button className="dropbtn"> Go To List</button>
+            <div className="dropdown-content">
+              <Link to="/lifeList">< a href="#"> Life List </a> </Link>
+              <Link to="/dreamList">< a href="#"> Dream List </a> </Link>
+            </div>
+            </div>
+            <div className="dropdown">
+            <Link className= "homeNav" to="/user"> Home </Link>
+            <LogOutButton className=" logOutLink" />
+            </div>
+            
+            
+           
+          
           </>
-        )}
+       
+       
+       
+       
+       
+       
+       )}
 
-        <Link className="navLink" to="/about">
-        <h2> Info Page </h2>
-        </Link>
+      
       </div>
     </div>
   );
 }
 
 export default Nav;
+
