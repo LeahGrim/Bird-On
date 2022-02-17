@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
-
+import './AboutPage.css'
 // This is one of our simplest components
 // It doesn't have local state,
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -20,12 +20,15 @@ function AboutPage() {
   }, [])
 
   return (
-      
+      <div className="infoTitle"> 
+        <h2 className="infoHeading"> Bird On, a Life List Generator for Birders</h2>
+        <h3 className="topBorder"> This app was built with the intention of mitigating messy and un-trackable record-keeping of birds sighted in one's lifetime </h3>
       <img 
-            src= {lifeList[0].image_path}
-            width= {350}
-            height={300}
+            src= {lifeList[23].image_path}
+            width= {500}
+            height={500}
         />
+      </div>
   )
 }
 

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+//material UI navigation constants 
 
   return (
     <div className="nav">
@@ -29,21 +30,22 @@ function Nav() {
             <Link className= "navLink" to= "/form">
             <h2> Add Bird Form </h2>
             </Link>
+            <Link className= "navLink" to= "/form/dream">
+              Add Dream Bird
+            </Link>
             <Link className= "navLink" to="/lifeList">
               <h2> Life List </h2>
               </Link>
               <Link className= "navLink" to="/dreamList">
               <h2> Dream List </h2>
               </Link>
-            {/* <Link className="navLink" to="/info">
-              Info Page
-            </Link> */}
+
             <LogOutButton className="navLink" />
           </>
         )}
 
         <Link className="navLink" to="/about">
-        <h2> About </h2>
+        <h2> Info Page </h2>
         </Link>
       </div>
     </div>

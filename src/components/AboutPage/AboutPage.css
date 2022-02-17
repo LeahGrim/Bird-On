@@ -1,0 +1,11 @@
+.infoTitle{
+    width: 500px;
+    border: 4px black solid;
+    margin: auto
+}
+
+
+.topBorder{
+    border-top: 3px black solid;
+    margin: 3px
+}
