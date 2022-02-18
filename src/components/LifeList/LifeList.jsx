@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import Grid from '@mui/material/Grid';
 function LifeList (){
     //history of birds logged by the user as sighted birds
     //stored in the clientListReducer
@@ -73,7 +73,8 @@ function deleteBird(id){
         <div className="lifeListContainer"> 
         {lifeList && 
         // life list div becomes grid container
-            <div className= "lifeListDiv">
+            // <div className= "lifeListDiv">
+            <Grid container className="lifeListContainer"> 
                 {lifeList.map((bird, index) => (
                   //  grid item  
                    <div className="birdImage" key= {index}>   
@@ -110,11 +111,11 @@ function deleteBird(id){
                     </div>
             
                ))} 
-            </div>
+            </Grid>
             
             }
-
-        </div>
+  
+         </div>
         </>
     )
 }
