@@ -69,7 +69,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 1em;
+    line-height: 1px;
+    margin-top: 10px;
+    
+    
 }
 
 .submitChange{
@@ -102,4 +105,14 @@
 .cancelChange{
     display: flex;
     flex-direction: column;
+}
+
+.markAsSpotted{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.detailPageTitle{
+    border: 2px solid black;
+    padding: 10px;
 }

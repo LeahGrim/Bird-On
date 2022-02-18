@@ -55,8 +55,8 @@ function LifeListDetail(){
    
         <img 
             src= {selectedBird.image_path}
-            width= {350}
-            height={300}
+            width= {600}
+            height={450}
         />
         </div>
         
