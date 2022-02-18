@@ -20,6 +20,7 @@ function AboutPage() {
   }, [])
 
   return (
+    <>
       <div className="infoBoxList">
           <div className="infoTitle"> 
             <h2 className="listInfoHeading"> Technologies Implemented </h2>
@@ -61,6 +62,12 @@ function AboutPage() {
             />
           </div>
           </div>
+          <div className="footerInfo">
+            <h3> App Creator :: Leah Grim </h3>
+            <h3> Find Me on Github :: https://github.com/LeahGrim </h3>
+            <h3> Find Me on LinkedIn :: https://www.linkedin.com/in/leah-grim-846875218/ </h3>
+          </div>
+          </>
   )
 }
 
