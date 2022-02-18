@@ -62,10 +62,10 @@ function deleteBird(id){
  {/* IN THE input have an onchange that grabs the text from the input and sets that to dispatch reducer 
  establish a get request that uses a where clause taht when two things are alike  */}
         <div className= "lifeListFilter"> 
-           <input placeholder="Filter by Order"> 
+           {/* <input placeholder="Filter by Order"> 
             </input>
             <input placeholder="Filter by Family"> 
-            </input>
+            </input> */}
             <input placeholder="Filter by Year"> 
             </input>
           </div>
