@@ -55,7 +55,7 @@ function AboutPage() {
             <h3 className="listItem" > • Woodall Cohort </h3>
             <h3 className="listItem" > • Prime Instructors / Support Staff </h3>
           <img 
-                src= {'https://www.owling.com/wp-content/uploads/photo-gallery/black-white-owl4.jpg'}
+                src= {'https://birdfeederhub.com/wp-content/uploads/2019/09/barn-owl.jpg'}
                 width= {500}
                 height={450}
                 className="OwlPic"
