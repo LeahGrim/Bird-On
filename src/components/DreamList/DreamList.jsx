@@ -35,7 +35,7 @@ function handleSelectedBird(bird){
 
     return (
         <>
-        <div className= "LifeListHeader">
+        <div className= "DreamListHeader">
         <h1> Birds Engrained In Your Dreams</h1>
         </div>
         <div className= "filter">
@@ -45,7 +45,7 @@ function handleSelectedBird(bird){
             </input>
             <input placeholder="Filter by Year"> 
             </input> */}
-            <h3> Count: </h3>
+            <h3 className= "DreamListHeader"> Count: 23 </h3>
         </div>
         <div className="lifeListContainer"> 
         {list && 
@@ -58,7 +58,7 @@ function handleSelectedBird(bird){
                                     <img 
                                         
                                         src= {bird.image_path}
-                                        width= {400}
+                                        width= {460}
                                         height={350}
                                         onClick= {() => handleSelectedBird(bird)}
                                     />

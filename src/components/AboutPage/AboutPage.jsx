@@ -20,16 +20,47 @@ function AboutPage() {
   }, [])
 
   return (
+      <div className="infoBoxList">
+          <div className="infoTitle"> 
+            <h2 className="listInfoHeading"> Technologies Implemented </h2>
+            <h3 className="listItem" > • React js / Material UI</h3>
+            <h3 className="listItem" > • Node js  / PostgreSQL  </h3>
+            <h3 className="listItem" > • Javascript / Html / CSS </h3>
+            <h3 className="listItem" > • Flickr API</h3>
+          <img 
+                src= {'https://c8.alamy.com/zooms/9/e597a25d4be94a6b8d5362d833b92f97/ry9t2b.jpg'}
+                width= {500}
+                height={420}
+                className="OwlPic"
+            />
+          </div>
+      
       <div className="infoTitle"> 
-        <h2 className="infoHeading"> Bird On, a Life List Generator for Birders</h2>
+        <h2 className="infoHeading"> Bird On, a Life List Generator</h2>
         <h3 className="topBorder" > An app built to mitigate messy and un-trackable record-keeping of birds sighted in one's lifetime </h3>
+        <h3 className="listItem" > </h3>
+        <h3 className="listItem" > </h3>
       <img 
-            src= {lifeList[20].image_path}
+            src= {'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/screech-owl-family-justin-battles.jpg'}
             width= {500}
             height={500}
             className="OwlPic"
         />
       </div>
+        
+          <div className="infoTitle"> 
+            <h2 className="listInfoHeading"> Acknowledgments </h2>
+            <h3 className="listItem" > • World IOC Bird List </h3>
+            <h3 className="listItem" > • Woodall Cohort </h3>
+            <h3 className="listItem" > • Prime Instructors / Support Staff </h3>
+          <img 
+                src= {'https://www.owling.com/wp-content/uploads/photo-gallery/black-white-owl4.jpg'}
+                width= {500}
+                height={450}
+                className="OwlPic"
+            />
+          </div>
+          </div>
   )
 }
 
