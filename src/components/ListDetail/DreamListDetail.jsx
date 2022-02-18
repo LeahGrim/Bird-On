@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import HomeIcon from '@mui/icons-material/Home';
 
 function DreamListDetail(){
     const selectedBird = useSelector((store) => store.setSelectedBird) 
@@ -41,6 +42,11 @@ function DreamListDetail(){
         history.push('/dreamList')
 
     }
+
+    //on click of fly back to dream list
+    function goToDreamList(){
+        history.push('/dreamList')
+    }
     return(
         <>
         <div className= "detailBirdContainer">
@@ -50,8 +56,8 @@ function DreamListDetail(){
         
         <img 
             src= {selectedBird.image_path}
-            width= {350}
-            height={300}
+            width= {450}
+            height={400}
         />
         </div>
          <div className="DetailPageDescription" > 
@@ -122,9 +128,16 @@ function DreamListDetail(){
                 }
         
         {editable ===false ?
-        <div className="markAsSpotted"> <h4> Mark as Spotted </h4>
-         <RemoveRedEyeIcon onClick={handleEditable}>  </RemoveRedEyeIcon> 
-         </div> :
+        <div className="btnBox">
+            <div className="markAsSpotted"> <h3> Mark as Spotted </h3>
+                <RemoveRedEyeIcon onClick={handleEditable} sx={{ fontSize: 50 }}>  </RemoveRedEyeIcon> 
+            </div> 
+            <div className="markAsSpotted" onClick={goToDreamList}> <h3> Fly Back To Dream List</h3>
+               <HomeIcon onClick={handleEditable} className= "MUIeditBtn" sx={{ fontSize: 50 }} >  </HomeIcon> 
+            </div>
+        </div>
+        
+         :
         <button onClick={handleEditable}> Cancel  </button> 
         
         }
