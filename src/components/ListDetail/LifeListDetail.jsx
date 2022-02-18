@@ -2,7 +2,10 @@ import "./DetailView.css";
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
-
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import HomeIcon from '@mui/icons-material/Home';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 function LifeListDetail(){
     const selectedBird = useSelector((store) => store.setSelectedBird) 
     
@@ -38,6 +41,10 @@ function LifeListDetail(){
         })
         history.push('/lifeList')
 
+    }
+
+    function goToLifeList(){
+        history.push('/lifeList');
     }
     return(
         <>
@@ -117,16 +124,34 @@ function LifeListDetail(){
                                     }}
                     />
                 </div>
-              
-                   <button className="submitChangeBtn" onClick={editBirdDetail}>
-                       Submit Changes 
-                    </button>  
+                    <div className="cancelSubmit">
+                    <div className="submitChange"> 
+                    <h3>Submit Changes</h3>
+                    <AddCircleIcon className="submitChangeBtn" sx={{ fontSize: 60 }}  onClick={editBirdDetail}> </AddCircleIcon>  
+                    </div>
+                    <div className="cancelBtn"> 
+                    <div className="cancelChange" onClick={handleEditable}> 
+                    <h3>Cancel</h3>
+                    <CancelIcon className="submitChangeBtn" sx={{ fontSize: 60 }}  onClick={editBirdDetail}> </CancelIcon>
+                    </div>
+                    </div>
+                    </div>
                     </div>
                 }
           </div>
         {editable ===false ?
-        <button onClick={handleEditable}> Edit Details </button> :
-        <button onClick={handleEditable}> Cancel Edits </button> 
+        <div className="btnBox">
+        <div className= "LDetailButtons" ><h3> Edit Details </h3>
+        <AutoFixHighIcon onClick={handleEditable} className="MUIeditBtn" sx={{ fontSize: 50 }} > Edit Details </AutoFixHighIcon> 
+        </div>
+        <div className="markAsSpotted" onClick={goToLifeList}> <h3> Fly Back To Life List</h3>
+         <HomeIcon onClick={handleEditable} className= "MUIeditBtn" sx={{ fontSize: 50 }} >  </HomeIcon> 
+         </div>
+         </div>
+         :
+         <div> 
+       
+        </div>
         }
     
        </div>
