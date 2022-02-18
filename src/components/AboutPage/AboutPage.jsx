@@ -22,11 +22,12 @@ function AboutPage() {
   return (
       <div className="infoTitle"> 
         <h2 className="infoHeading"> Bird On, a Life List Generator for Birders</h2>
-        <h3 className="topBorder"> This app was built with the intention of mitigating messy and un-trackable record-keeping of birds sighted in one's lifetime </h3>
+        <h3 className="topBorder" > An app built to mitigate messy and un-trackable record-keeping of birds sighted in one's lifetime </h3>
       <img 
-            src= {lifeList[23].image_path}
+            src= {lifeList[20].image_path}
             width= {500}
             height={500}
+            className="OwlPic"
         />
       </div>
   )
