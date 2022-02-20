@@ -3,10 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid black;
-  background-image: url('https://www.tomorrow.io/weather/blog/wp-content/uploads/2021/07/Clouds.jpeg');
-  background-position: center;
-  background-size: 10000px 200px;
+  border-bottom: 7px solid black;
+  background-image: url('https://i0.wp.com/mymeadowreport.com/wp-content/uploads/2020/07/img_4343.jpg?fit=1000%2C667&ssl=1');
+  background-position:left;
+  background-size: 2500px 200px;
   color: white;
   height: 150px;
 }

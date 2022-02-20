@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import DreamDeleteButton from "../DeleteButton/DreamDeleteButton.jsx";
 import { useHistory, useParams } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
 
 function DreamList (){
     const list = useSelector(store => store.dreamListReducer);
@@ -39,17 +40,12 @@ function handleSelectedBird(bird){
         <h1> Birds Engrained In Your Dreams</h1>
         </div>
         <div className= "filter">
-            {/* <input placeholder="Filter by Order"> 
-            </input>
-            <input placeholder="Filter by Family"> 
-            </input>
-            <input placeholder="Filter by Year"> 
-            </input> */}
+           
             <h3 className= "DreamListHeader"> Count: 23 </h3>
         </div>
-        <div className="lifeListContainer"> 
+        <div> 
         {list && 
-            <div className= "lifeListDiv">
+            <Grid container className= "dreamListContainer">
                 {list.map((bird, index) => (
                     // on click of the entire image div, the selected bird will be sent to 
                     // selectedBird reducer via dispatch, and recalled at the DreamListDetail.jsx component
@@ -85,7 +81,7 @@ function handleSelectedBird(bird){
                                     
                     </div>
                 ))}
-            </div>
+            </Grid>
             }
         </div>
         </>

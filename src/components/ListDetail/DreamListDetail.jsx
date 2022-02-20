@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import HomeIcon from '@mui/icons-material/Home';
-
+import CancelIcon from '@mui/icons-material/Cancel';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 function DreamListDetail(){
     const selectedBird = useSelector((store) => store.setSelectedBird) 
     console.log('selectedBird is ', selectedBird)
@@ -121,10 +122,20 @@ function DreamListDetail(){
                                     }}
                     />
                 </div>
-                   <button className="submitChangeBtn" onClick={editBirdDetail}>
-                       Submit Changes 
-                    </button>  
-                </div>
+                <div className="cancelSubmit">
+                    <div className="submitChange"> 
+                    <h3>Submit Changes</h3>
+                    <AddCircleIcon className="submitChangeBtn" sx={{ fontSize: 60 }}  onClick={editBirdDetail}> </AddCircleIcon>  
+                    </div>
+                    <div className="cancelBtn"> 
+                    <div className="cancelChange" onClick={handleEditable}> 
+                    <h3>Cancel</h3>
+                    <CancelIcon className="submitChangeBtn" sx={{ fontSize: 60 }}  onClick={editBirdDetail}> </CancelIcon>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+             
                 }
         
         {editable ===false ?
@@ -138,8 +149,7 @@ function DreamListDetail(){
         </div>
         
          :
-        <button onClick={handleEditable}> Cancel  </button> 
-        
+        <div></div>
         }
         
         </div>

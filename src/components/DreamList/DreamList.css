@@ -10,7 +10,8 @@
 .birdImage{
     padding: 10px;
     background: rgb(127, 149, 163);
-    border: 2px rgb(254, 254, 254) solid
+    border: 2px rgb(254, 254, 254) solid;
+    margin: 10px;
 }
 
 .birdNameTitle{
@@ -25,4 +26,11 @@
 }
 .DreamListHeader{
     text-align: center;
+}
+
+.dreamListContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
 }
