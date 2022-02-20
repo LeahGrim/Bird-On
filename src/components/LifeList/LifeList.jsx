@@ -58,7 +58,7 @@ function deleteBird(id){
             
         <div className= "LifeListHeader">
         <h1> Life List </h1> 
-        <h3> Count: 23 </h3>
+        <h3> Count: 43 </h3>
         <h3></h3>
         </div>
 {/* DISPLAY TOTAL COUNT */}
