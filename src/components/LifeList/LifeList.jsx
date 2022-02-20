@@ -54,8 +54,12 @@ function deleteBird(id){
 }
     return (
         <>
+       
+            
         <div className= "LifeListHeader">
         <h1> Life List </h1> 
+        <h3> Count: 23 </h3>
+        <h3></h3>
         </div>
 {/* DISPLAY TOTAL COUNT */}
  {/* <h2> Total Count: </h2> */}

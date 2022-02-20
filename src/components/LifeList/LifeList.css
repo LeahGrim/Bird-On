@@ -1,10 +1,14 @@
 .LifeListHeader{
-    /* display: flex; */
-    margin-left: 50%;
-    height: 100px;
-    /* background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/altocumulus.jpg/altocumulus.jpg/metofficegovuk%3AheroXLarge") ; */
-    background-position: center;
-    background-size: inherit;
+    display: flex;
+    margin: 0;
+    height: 130px;
+    background-color:rgb(125, 163, 180);
+    justify-content: baseline;
+    font-size: 28px;
+    align-items: center;
+    flex-direction: column;
+    line-height: 0.25px;
+       
     }
 
 .containerForBirdDescription{
@@ -13,7 +17,7 @@
 }
 
 .lifeListDiv{
-   /* display: flex; */
+   display: flex;
    border: 2px solid black;
    padding: 20px;
 }
@@ -42,10 +46,9 @@
     
 
 .lifeListContainer{
-    background-image: url('https://images.pexels.com/videos/3129769/free-video-3129769.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500');
     background-size: contain;
     justify-content: center;
-    padding-top: 20px;
+    background-image: url('https://images.foxweather.com/static.foxweather.com/www.foxweather.com/content/uploads/2021/12/668/376/clouds-generic.jpg?ve=1&tl=1')
 }
 
 .LDetailButtons{
@@ -122,4 +125,11 @@
 .detailPageTitle{
     border: 2px solid black;
     padding: 10px;
+}
+.lifeListFilter{
+    background-image:url('https://images.foxweather.com/static.foxweather.com/www.foxweather.com/content/uploads/2021/12/668/376/clouds-generic.jpg?ve=1&tl=1');
+    display: flex;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+     
 }

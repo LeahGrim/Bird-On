@@ -83,7 +83,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
                         "Common_name",
                         "Order", "Family_name",
                         "Scientific_name", "description",
-                        "location_spotted", "date_spotted", 
+                        "location_spotted", 
+                        TO_CHAR("date_spotted",'YYYY-MM-DD') AS date_spotted, 
                         "image_path", "bird_id", 
                         "client_bird_list".id
                     FROM birds 

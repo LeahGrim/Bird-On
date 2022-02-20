@@ -168,7 +168,7 @@ function addBirdToList(event){
            </div>
         
          <br/>
-          <button className="formSubmitBtn" onClick={addBirdToList} > Add Bird To List </button>
+          <button className="formSubmitBtn" onClick={addBirdToList} ><h2> Add Bird To List</h2></button>
         </form>
       </div>
 

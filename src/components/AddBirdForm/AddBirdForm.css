@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(191, 182, 184);
+  background-color: rgb(157, 186, 187);
   padding: 20px;
 }
 
@@ -13,7 +13,7 @@ input{
     text-align: center;
     display: flex;
     width: 350px;
-    background-color: rgb(191, 182, 184);
+    background-color: rgb(147, 179, 177);
   }
   
 .selectedImage{
@@ -29,9 +29,17 @@ input{
   flex-direction: row;
   margin-bottom: 10px;
   border: 2px solid black;
+  color:black; 
+  font-size: 20px;
+  justify-content: center;
 }
 
 
 .redBorder{
   border: 2px solid red;
+}
+
+.inputAndLabel{
+  border: 2px solid black;
+  justify-content: center;
 }

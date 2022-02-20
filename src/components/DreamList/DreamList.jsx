@@ -38,11 +38,8 @@ function handleSelectedBird(bird){
         <>
         <div className= "DreamListHeader">
         <h1> Birds Engrained In Your Dreams</h1>
-        </div>
-        <div className= "filter">
-           
             <h3 className= "DreamListHeader"> Count: 23 </h3>
-        </div>
+            </div>
         <div> 
         {list && 
             <Grid container className= "dreamListContainer">
@@ -52,9 +49,9 @@ function handleSelectedBird(bird){
                     <div className="birdImage" key= {index}>   
                                     {/* IMAGE OF BIRD */}
                                     <img 
-                                        
+                                        className= "birdImg"
                                         src= {bird.image_path}
-                                        width= {460}
+                                        width= {500}
                                         height={350}
                                         onClick= {() => handleSelectedBird(bird)}
                                     />

@@ -57,8 +57,8 @@ function DreamListDetail(){
         
         <img 
             src= {selectedBird.image_path}
-            width= {450}
-            height={400}
+            width= {750}
+            height={600}
         />
         </div>
          <div className="DetailPageDescription" > 
