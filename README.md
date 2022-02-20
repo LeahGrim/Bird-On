@@ -31,6 +31,6 @@ Fork and clone repo. Initialize the database with the code from database.sql In 
 IOC World Bird List & Flickr API
 
 ## Contacts
-<a href="https://www.linkedin.com/in/leah-grim-846875218/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>  <a href="https://github.com/LeahGrim"><img src=https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png /></a>
+<a href="https://www.linkedin.com/in/leah-grim-846875218/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 
 
