@@ -91,7 +91,7 @@ function deleteBird(id){
                                     </div>
                                     {editable === false ?
                                     <h2 className= "commonNameTtl"> {bird.Common_name} </h2> :
-                                    <div>
+                                    <div className="taxonomyToggle">
                                     <h4> {bird.Common_name}</h4>
                                     <h4> Order:</h4>  {bird.Order} 
                                      <h4> Family Name: </h4>{bird.Family_name} 

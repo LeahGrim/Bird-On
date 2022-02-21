@@ -133,3 +133,11 @@
     border-top: 2px solid black;
      
 }
+.taxonomyToggle{
+   margin-bottom: 20px;
+   background:rgb(148, 164, 172);
+   font-size: 15px;
+   line-height: 1em;
+   padding-bottom: 20px;
+   padding-top: 10px
+}
