@@ -71,7 +71,7 @@ function LifeListDetail(){
         */}
                 {editable === false ?
            <div>
-           <h3> Official Timestamp of Sighting: {selectedBird.date_spotted}</h3> 
+           <h3 className="location"> Official Timestamp of Sighting: {selectedBird.date_spotted}</h3> 
             </div>
             :
                     <div className= "editInfo"> 
@@ -92,7 +92,7 @@ function LifeListDetail(){
                     </div>
                 }
                 {editable === false ?
-            <h3> Location of Sighting: {selectedBird.location_spotted} </h3> : 
+            <h3 className="location"> Location of Sighting: {selectedBird.location_spotted} </h3> : 
                     <div className ="editInfo">
                         <h4>Edit City/State <br/> City/Country of Sighting </h4>
                         <input
@@ -109,7 +109,7 @@ function LifeListDetail(){
                     </div>
                 }
                 {editable === false ? 
-            <h3> Notes on Bird: {selectedBird.description}</h3> :
+            <h4 className="location txt"> Notes on Bird:<h3 className="location">{selectedBird.description}</h3></h4>   :
                 <div>
                 <div className ="editInfo">
                     <h4>Edit Notes on Bird Sighting </h4>

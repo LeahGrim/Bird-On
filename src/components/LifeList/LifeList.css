@@ -141,3 +141,25 @@
    padding-bottom: 20px;
    padding-top: 10px
 }
+
+.order{
+    display: inline-block;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 1px;
+}
+
+
+.family{
+    display: inline-block;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 1px;
+}
+
+.species{
+    display: inline-block;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 1px;
+}

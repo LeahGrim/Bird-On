@@ -60,12 +60,15 @@ function handleSelectedBird(bird){
                                  
                                        
                                     {editable === false ?
-                                    <h2> {bird.Common_name} </h2> :
+                                    <h2 className="commonName"> {bird.Common_name} </h2> :
                                     <div>
+
                                     <h4> {bird.Common_name}</h4>
-                                    <h4> Species Name:</h4> {bird.Scientific_name} 
-                                    <h4> Family Name:</h4> {bird.Family_name} 
-                                    <h4> Order:</h4> {bird.Order} 
+                                    <h4 className="order"> Order:</h4> <div className="order"> {bird.Order} </div> <br/>
+                                    <h4 className="family"> Family Name:</h4> <div className="family"> {bird.Family_name} </div> <br/>
+                                    <h4 className="species"> Species Name:</h4> <div className="species"> {bird.Scientific_name} </div>
+                                    
+                                  
                                     </div>
                                       }
                              <div className="birdNameTitle">         
