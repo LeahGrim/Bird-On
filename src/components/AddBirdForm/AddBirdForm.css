@@ -43,3 +43,8 @@ input{
   border: 2px solid black;
   justify-content: center;
 }
+
+.img:hover{
+  background: coral;
+width: 400px;
+}

@@ -52,8 +52,8 @@ function AboutPage() {
           <div className="infoTitle"> 
             <h2 className="listInfoHeading"> Acknowledgments </h2>
             <h3 className="listItem" > • World IOC Bird List </h3>
-            <h3 className="listItem" > • Woodall Cohort </h3>
-            <h3 className="listItem" > • Prime Instructors / Support Staff </h3>
+            <h3 className="listItem" > • Flickr API </h3>
+            <h3 className="listItem" > • Prime Academy </h3>
           <img 
                 src= {'https://birdfeederhub.com/wp-content/uploads/2019/09/barn-owl.jpg'}
                 width= {500}
