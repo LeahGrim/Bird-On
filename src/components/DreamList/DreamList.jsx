@@ -51,7 +51,7 @@ function handleSelectedBird(bird){
                                     <img 
                                         className= "birdImg"
                                         src= {bird.image_path}
-                                        width= {500}
+                                        width= {450}
                                         height={350}
                                         onClick= {() => handleSelectedBird(bird)}
                                     />

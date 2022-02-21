@@ -177,7 +177,7 @@ function addBirdToList(event){
             {pictureResults && 
           <div className= 'pictureDiv'> 
             {pictureResults.photos.photo.map((img, index) => (
-             <div className="img"> 
+   
                 <img
                     key= {index}
                     src= {`https://live.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`} 
@@ -186,7 +186,7 @@ function addBirdToList(event){
                     height= {350}
                     onClick= {event => chosenPic(img) } 
                 />
-                </div>
+               
             ))}
            
           </div>
