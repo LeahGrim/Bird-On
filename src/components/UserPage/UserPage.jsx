@@ -10,6 +10,7 @@ function UserPage() {
     <div className="container">
       <h2>Welcome Birder, {user.username}!</h2>
       <p> Birder ID is: {user.id}</p>
+      <h3> Keep Calm and Carrion! </h3>
         <h2 className= "branchTitle"> Choose Your Branch</h2>
       <div className= "linkGroups"> 
         <div className='linkTitle'> 
