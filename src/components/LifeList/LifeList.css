@@ -44,6 +44,8 @@
 
 .commonNameTtl{
     text-align: center;
+    font-size: 25px;
+    font-variant: small-caps;
    
 }
     
@@ -134,6 +136,11 @@
     display: flex;
     border-bottom: 2px solid black;
     border-top: 2px solid black;
+    flex-direction: row;
+    font-size: 30px;
+    align-items: center;
+    text-align: center;
+    font-variant: small-caps;
      
 }
 .taxonomyToggle{
