@@ -40,6 +40,18 @@ function handleSelectedBird(bird){
         <h1 className="ListTitleHeading"> Birds Engrained In Your Dreams</h1>
             <h3> Count: 23 </h3>
             </div>
+        {/* DISPLAY TOTAL COUNT */}
+ {/* <h2> Total Count: </h2> */}
+ {/* IN THE input have an onchange that grabs the text from the input and sets that to dispatch reducer 
+ establish a get request that uses a where clause taht when two things are alike  */}
+        <div className= "lifeListFilter"> 
+            <h2> Sort By:</h2>
+            <label> <strong>Order </strong><input placeholder="Order"> 
+            </input> </label>
+            <label> <strong>Family </strong><input placeholder="Order"> 
+            </input> </label>
+          
+          </div>
         <div> 
         {list && 
             <Grid container className= "dreamListContainer">

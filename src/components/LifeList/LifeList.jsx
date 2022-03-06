@@ -66,9 +66,15 @@ function deleteBird(id){
  {/* IN THE input have an onchange that grabs the text from the input and sets that to dispatch reducer 
  establish a get request that uses a where clause taht when two things are alike  */}
         <div className= "lifeListFilter"> 
-      
-            <input placeholder="Filter by Year"> 
-            </input>
+            <h2> Sort By:</h2>
+            <label> <strong>Year </strong><input placeholder="Year"> 
+            </input> </label>
+            <label> <strong>Order </strong><input placeholder="Order"> 
+            </input> </label>
+            <label> <strong>Family </strong><input placeholder="Order"> 
+            </input> </label>
+            <label> <strong>Location </strong><input placeholder="Order"> 
+            </input> </label>
           </div>
        {/* list listcontainer becomes grid container */}
         <div className="lifeListContainer"> 
@@ -81,11 +87,11 @@ function deleteBird(id){
                    <div className="birdImage" key= {index}>   
                                     {/* IMAGE OF BIRD */}
                                     {/* card media  */}
-                                    <div className="imgDiv">
+                                    <div className="birdImg">
                                     <img 
                                         src= {bird.image_path}
-                                        width= {350}
-                                        height={300}
+                                        width= {400}
+                                        height={350}
                                         onClick= {() => handleSelectedBird(bird) }
                                     />
                                     </div>
