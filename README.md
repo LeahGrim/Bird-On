@@ -17,8 +17,8 @@ This version uses React, Redux, Express, Passport, and PostgreSQL (a full list o
 An app built to mitigate messy and un-trackable record-keeping of birds sighted in one's lifetime 
 
 ## Screenshots
-![Screen Shot 2022-02-20 at 3 32 50 PM](https://user-images.githubusercontent.com/88753277/154865159-7ccd85aa-b1e5-4da8-8f86-b77e3696e4f5.png)
-![Screen Shot 2022-02-20 at 4 09 18 PM](https://user-images.githubusercontent.com/88753277/154866488-ade8bbe4-c447-4802-9ac9-acdc4aec18ad.png)
+![Screen Shot 2022-03-05 at 11 30 29 PM](https://user-images.githubusercontent.com/88753277/156910590-0b6d1833-e7cc-4a32-8bbc-c2c1b189e5d0.png)
+![Screen Shot 2022-03-05 at 11 28 36 PM](https://user-images.githubusercontent.com/88753277/156910591-2d7873f7-5129-4fc4-ba66-e0d315f05ae2.png)
 ![Screen Shot 2022-02-20 at 4 09 39 PM](https://user-images.githubusercontent.com/88753277/154866500-7d77a59a-e2db-4a2a-aff4-76b9da724dd0.png)
 
 ## Built With
