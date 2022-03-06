@@ -36,9 +36,9 @@ function handleSelectedBird(bird){
 
     return (
         <>
-        <div className= "DreamListHeader">
-        <h1> Birds Engrained In Your Dreams</h1>
-            <h3 className= "DreamListHeader"> Count: 23 </h3>
+        <div className= "ListHeader">
+        <h1 className="ListTitleHeading"> Birds Engrained In Your Dreams</h1>
+            <h3> Count: 23 </h3>
             </div>
         <div> 
         {list && 
@@ -51,7 +51,7 @@ function handleSelectedBird(bird){
                                     <img 
                                         className= "birdImg"
                                         src= {bird.image_path}
-                                        width= {500}
+                                        width= {450}
                                         height={350}
                                         onClick= {() => handleSelectedBird(bird)}
                                     />
@@ -60,12 +60,15 @@ function handleSelectedBird(bird){
                                  
                                        
                                     {editable === false ?
-                                    <h2> {bird.Common_name} </h2> :
+                                    <h2 className="commonName"> {bird.Common_name} </h2> :
                                     <div>
+
                                     <h4> {bird.Common_name}</h4>
-                                    <h4> Species Name:</h4> {bird.Scientific_name} 
-                                    <h4> Family Name:</h4> {bird.Family_name} 
-                                    <h4> Order:</h4> {bird.Order} 
+                                    <h4 className="order"> Order:</h4> <div className="order"> {bird.Order} </div> <br/>
+                                    <h4 className="family"> Family Name:</h4> <div className="family"> {bird.Family_name} </div> <br/>
+                                    <h4 className="species"> Species Name:</h4> <div className="species"> {bird.Scientific_name} </div>
+                                    
+                                  
                                     </div>
                                       }
                              <div className="birdNameTitle">         

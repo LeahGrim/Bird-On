@@ -29,7 +29,7 @@ function AboutPage() {
             <h3 className="listItem" > • Javascript / Html / CSS </h3>
             <h3 className="listItem" > • Flickr API</h3>
           <img 
-                src= {'https://c8.alamy.com/zooms/9/e597a25d4be94a6b8d5362d833b92f97/ry9t2b.jpg'}
+                src= {'https://cdn.cnn.com/cnnnext/dam/assets/220209145316-superb-owl-stock-large-169.jpg'}
                 width= {500}
                 height={420}
                 className="OwlPic"
@@ -52,8 +52,8 @@ function AboutPage() {
           <div className="infoTitle"> 
             <h2 className="listInfoHeading"> Acknowledgments </h2>
             <h3 className="listItem" > • World IOC Bird List </h3>
-            <h3 className="listItem" > • Woodall Cohort </h3>
-            <h3 className="listItem" > • Prime Instructors / Support Staff </h3>
+            <h3 className="listItem" > • Flickr API </h3>
+            <h3 className="listItem" > • Prime Academy </h3>
           <img 
                 src= {'https://birdfeederhub.com/wp-content/uploads/2019/09/barn-owl.jpg'}
                 width= {500}

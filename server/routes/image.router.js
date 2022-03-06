@@ -11,7 +11,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         params: {
             text: req.query.q,
             api_key: process.env.api_key,
-            per_page:30
+            per_page:100
         }
     })
         .then((apiRes) => {

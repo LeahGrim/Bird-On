@@ -1,16 +1,19 @@
-.LifeListHeader{
+.ListHeader{
     display: flex;
     margin: 0;
-    height: 130px;
+    height: 200px;
     background-color:rgb(125, 163, 180);
     justify-content: baseline;
     font-size: 28px;
     align-items: center;
     flex-direction: column;
     line-height: 0.25px;
-       
+    font-variant:small-caps;
     }
 
+.ListTitleHeading{
+    font-size: 100px;
+}
 .containerForBirdDescription{
     /* add padding */
    margin-bottom:100px;
@@ -132,4 +135,34 @@
     border-bottom: 2px solid black;
     border-top: 2px solid black;
      
+}
+.taxonomyToggle{
+   margin-bottom: 20px;
+   background:rgb(148, 164, 172);
+   font-size: 15px;
+   line-height: 1em;
+   padding-bottom: 20px;
+   padding-top: 10px
+}
+
+.order{
+    display: inline-block;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 1px;
+}
+
+
+.family{
+    display: inline-block;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 1px;
+}
+
+.species{
+    display: inline-block;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 1px;
 }

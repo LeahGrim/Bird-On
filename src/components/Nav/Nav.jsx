@@ -26,15 +26,15 @@ function Nav() {
             <div className="dropdown">
             <button className="dropbtn"> Add A Bird </button>
             <div className="dropdown-content">
-              <Link to="/form">< a href="#"> Add Bird Sighting </a> </Link>
+              <Link to="/form">Add Bird Sighting  </Link>
               <Link to="/form/dream"> Add Dream Bird </Link>
             </div>
           </div>
               <div className="dropdown">
             <button className="dropbtn"> Go To List</button>
             <div className="dropdown-content">
-              <Link to="/lifeList">< a href="#"> Life List </a> </Link>
-              <Link to="/dreamList">< a href="#"> Dream List </a> </Link>
+              <Link to="/lifeList"> Life List </Link>
+              <Link to="/dreamList"> Dream List </Link>
             </div>
             </div>
             <div className="dropdown">

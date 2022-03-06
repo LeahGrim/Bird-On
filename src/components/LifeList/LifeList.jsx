@@ -56,8 +56,8 @@ function deleteBird(id){
         <>
        
             
-        <div className= "LifeListHeader">
-        <h1> Life List </h1> 
+        <div className= "ListHeader">
+        <h1 className="ListTitleHeading"> Life List </h1> 
         <h3> Count: 43 </h3>
         <h3></h3>
         </div>
@@ -90,12 +90,12 @@ function deleteBird(id){
                                     />
                                     </div>
                                     {editable === false ?
-                                    <h2 className= "commonNameTtl"> {bird.Common_name} </h2> :
-                                    <div>
+                                    <h1 className= "commonNameTtl"> {bird.Common_name} </h1> :
+                                    <div className="taxonomyToggle">
                                     <h4> {bird.Common_name}</h4>
-                                    <h4> Order:</h4>  {bird.Order} 
-                                     <h4> Family Name: </h4>{bird.Family_name} 
-                                    <h4> Species Name:</h4> {bird.Scientific_name} 
+                                    <h4 className="order"> Order:</h4> <div className="order">{bird.Order} </div>  <br/>
+                                    <h4 className="family"> Family Name: </h4> <div className="family">{bird.Family_name} </div> <br/>
+                                    <h4 className="species"> Species Name:</h4> <div className="species"> {bird.Scientific_name} </div>
                                    
                                    
                                     </div>
