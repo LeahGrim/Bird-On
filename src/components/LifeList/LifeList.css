@@ -1,16 +1,19 @@
-.LifeListHeader{
+.ListHeader{
     display: flex;
     margin: 0;
-    height: 130px;
+    height: 200px;
     background-color:rgb(125, 163, 180);
     justify-content: baseline;
     font-size: 28px;
     align-items: center;
     flex-direction: column;
     line-height: 0.25px;
-       
+    font-variant:small-caps;
     }
 
+.ListTitleHeading{
+    font-size: 100px;
+}
 .containerForBirdDescription{
     /* add padding */
    margin-bottom:100px;

@@ -36,9 +36,9 @@ function handleSelectedBird(bird){
 
     return (
         <>
-        <div className= "DreamListHeader">
-        <h1> Birds Engrained In Your Dreams</h1>
-            <h3 className= "DreamListHeader"> Count: 23 </h3>
+        <div className= "ListHeader">
+        <h1 className="ListTitleHeading"> Birds Engrained In Your Dreams</h1>
+            <h3> Count: 23 </h3>
             </div>
         <div> 
         {list && 
