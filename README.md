@@ -12,6 +12,7 @@ This version uses React, Redux, Express, Passport, and PostgreSQL (a full list o
   - [Installation](#installation)
 - [Acknowledgements](#acknowledgements)
 - [Contacts](#contacts)
+- [Parting Message](#parting-message)
 
 ## Description
 An app built to mitigate messy and un-trackable record-keeping of birds sighted in one's lifetime 
@@ -55,5 +56,6 @@ IOC World Bird List & Flickr API
 ## Contacts
 <a href="https://www.linkedin.com/in/leah-grim-846875218/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 
+## Parting Message
 .. Keep calm and carrion ..
 
