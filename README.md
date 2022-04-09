@@ -34,7 +34,7 @@ Add A Bird Sighthing Form:
 
 <img width="447" alt="Screen Shot 2022-04-06 at 5 58 14 PM" src="https://user-images.githubusercontent.com/88753277/162086571-120f277a-556a-4f30-af1b-9991a7d4fe80.png">
 
-Automatically upon entering the common name of a bird, an image search with the scientific name as the keyword is generated via the Flickr API 
+Automatically upon entering the common name of a bird, an image search with the keyword of the corresponding scientific name is generated in Flickr using their API.
 
 https://user-images.githubusercontent.com/88753277/162087324-9aa2feac-2c55-47ab-b3dc-2eace182f001.mov
 
