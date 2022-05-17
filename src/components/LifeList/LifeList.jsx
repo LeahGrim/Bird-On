@@ -65,17 +65,19 @@ function deleteBird(id){
  {/* <h2> Total Count: </h2> */}
  {/* IN THE input have an onchange that grabs the text from the input and sets that to dispatch reducer 
  establish a get request that uses a where clause taht when two things are alike  */}
-        <div className= "lifeListFilter"> 
-            <h2> Sort By:</h2>
-            <label> <strong>Year </strong><input placeholder="Year"> 
-            </input> </label>
-            <label> <strong>Order </strong><input placeholder="Order"> 
-            </input> </label>
-            <label> <strong>Family </strong><input placeholder="Order"> 
-            </input> </label>
-            <label> <strong>Location </strong><input placeholder="Order"> 
-            </input> </label>
-          </div>
+     
+     {/* FILTER PREP --- FOR FUTURE ADAPTATION */}
+          {/* <div className= "lifeListFilter"> 
+              <h2> Sort By:</h2>
+              <label> <strong>Year </strong><input placeholder="Year"> 
+              </input> </label>
+              <label> <strong>Order </strong><input placeholder="Order"> 
+              </input> </label>
+              <label> <strong>Family </strong><input placeholder="Order"> 
+              </input> </label>
+              <label> <strong>Location </strong><input placeholder="Order"> 
+              </input> </label>
+            </div> */}
        {/* list listcontainer becomes grid container */}
         <div className="lifeListContainer"> 
         {lifeList && 
