@@ -54,8 +54,6 @@ function deleteBird(id){
 }
     return (
         <>
-       
-            
         <div className= "ListHeader">
         <h1 className="ListTitleHeading"> Life List </h1> 
         <h3 className="ListDescription"> // In all poor foolish things that live in a day, eternal beauty wandering on her way // -Yeats </h3>
@@ -76,7 +74,7 @@ function deleteBird(id){
             <label> <strong>Location </strong><input placeholder="Order"> 
             </input> </label>
           </div>
-       {/* list listcontainer becomes grid container */}
+       {/* list container becomes grid container */}
         <div className="lifeListContainer"> 
         {lifeList && 
         // life list div becomes grid container

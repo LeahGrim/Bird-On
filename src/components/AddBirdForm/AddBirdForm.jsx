@@ -33,7 +33,7 @@ function AddBirdForm() {
       payload: { text: newImageSearch },
     });
   }
-
+//on page load, the data that is generated 
   useEffect(()=> {
     dispatch({
       type: 'FETCH_BIRDS'
