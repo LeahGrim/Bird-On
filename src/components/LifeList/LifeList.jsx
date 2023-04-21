@@ -18,6 +18,7 @@ function LifeList (){
   
   const [editable, setEditable] = useState(false);
  
+  //Function to toggle between the picture of the bird and the taxonomic description
   function handleEditable(){
     setEditable(!editable);
 }
