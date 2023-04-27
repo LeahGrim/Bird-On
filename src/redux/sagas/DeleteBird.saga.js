@@ -18,6 +18,7 @@ function* deleteBirdId(action){
 }
 //function is triggered when the 'DELETE_LIFE_BIRD' is called
 //on the client side (SightedList.jsx)
+//payload is then put into the client list that is triggered on page load
 function* deleteBird(action){
     let response=  yield axios.delete(`/client/life/list/${action.payload}`);
    
